@@ -13,7 +13,9 @@ const SignInForm = ({
   dniNumber,
   userName,
   onChange,
-  handleCheck
+  handleCheck,
+  goToSteps,
+  route
 }) => {
   return (
     <div className='container'>
@@ -66,7 +68,7 @@ const SignInForm = ({
             <select>
               <option>DNI</option>
             </select>
-            <Input
+            <input
               type='number'
               placeholder='Nro. de Documento'
               pattern={onlyNumbers}
@@ -85,23 +87,33 @@ const SignInForm = ({
             onChange={onChange}
           />
 
-          <CheckBox
-            value='Acepto la Política de Protección de Datos Personales y los Términos y Condiciones.'
-            checked={requestPermisions}
-            onClick={handleCheck}
-            disabled={false}
-            className='checkbox-protection'
-          />
-          <CheckBox
-            value='Acepto la Política de Envío de Comunicaciones Comerciales.'
-            checked={requestPermisions}
-            onClick={handleCheck}
-            disabled={false}
-            className='checkbox-cc'
-          />
+          <div className='margin-top-checkbox'>
+            <CheckBox
+              value='Acepto la Política de Protección de Datos Personales y los Términos y Condiciones.'
+              checked={requestPermisions}
+              onClick={handleCheck}
+              disabled={false}
+              className='checkbox-cc'
+            />
+            <CheckBox
+              value='Acepto la Política de Envío de Comunicaciones Comerciales.'
+              checked={requestPermisions}
+              onClick={handleCheck}
+              disabled={false}
+              className='checkbox-cc'
+            />
+          </div>
 
-          <Link to='/information'>
-            <Button onClick={() => alert('hey')} title='Comencemos' />
+          <Link
+            to={{
+              pathname: route,
+              state: {
+                dniNumber
+              }
+            }}
+            onClick={goToSteps}
+          >
+            Comencemos
           </Link>
         </main>
       </div>

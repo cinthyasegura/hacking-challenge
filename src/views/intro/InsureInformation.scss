@@ -1,4 +1,4 @@
- @import '../../App.scss';
+@import '../../App.scss';
 
 .container {
   @include gridContainer();
@@ -13,7 +13,7 @@
   grid-area: form;
   display: flex;
   align-items: center;
-  margin-top: 10%;
+  margin-top: 20%;
   flex-direction: column;
 }
 
@@ -67,11 +67,11 @@
   padding-left: 16px;
 }
 
-// no se esta usando
-.formInputs {
-  width: 50%;
-  color: $gray;
+.margin-top-checkbox {
+  margin-top: 2rem;
 }
+// no se esta usando
+
 .title-form {
   font-family: Lato;
   font-style: normal;
@@ -89,12 +89,9 @@
   line-height: 24px;
 }
 
-.checkbox-proteccion {
-  margin-top: 32px;
-}
-
 .checkbox-cc {
-  margin-top: 24px;
+  margin: 1rem 0;
+  font-size: $h6;
 }
 
 .primary-button {
@@ -162,7 +159,6 @@
 }
 .icon {
   background-color: $title-color;
-  // height: 10px;
 }
 
 .footer {

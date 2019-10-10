@@ -9,7 +9,8 @@ class InsureInformation extends Component {
       requestPermisions: false,
       dniNumber: '',
       userName: '',
-      errors: ''
+      errors: '',
+      route: ''
     };
   }
 
@@ -27,13 +28,19 @@ class InsureInformation extends Component {
     this.setState(newState);
   };
 
-  goToSteps = event => {
-    event.preventDefault();
-    //validate inputs
+  goToSteps = () => {
+    const { requestPermisions, dniNumber, userName } = this.state;
+    if (dniNumber && userName !== '') this.setState({ route: '/information' });
   };
 
   render() {
-    const { requestPermisions, dniNumber, userName, errors } = this.state;
+    const {
+      requestPermisions,
+      dniNumber,
+      userName,
+      errors,
+      route
+    } = this.state;
 
     return (
       <SignInForm
@@ -43,6 +50,8 @@ class InsureInformation extends Component {
         onChange={this.onChange}
         handleCheck={this.handleCheck}
         errors={errors}
+        goToSteps={this.goToSteps}
+        route={route}
         {...this.props}
       />
     );

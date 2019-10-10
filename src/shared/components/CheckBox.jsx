@@ -23,7 +23,6 @@ const CheckBox = ({
           checked={checked}
           disabled={disabled}
           onClick={() => handleCheckboxChange()}
-          className={className}
           required
         />
         {value}

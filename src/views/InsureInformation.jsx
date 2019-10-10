@@ -7,6 +7,7 @@ import girl from '../assets/girl.svg';
 import CheckBox from '../shared/components/CheckBox';
 // import Button from '../shared/components/Button';
 import { onlyNumbers } from '../utils/regex';
+import './InsureInformation.css';
 
 class InsureInformation extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class InsureInformation extends Component {
       requestPermisions: !requestPermisions
     });
   };
+
   render() {
     const { requestPermisions } = this.state;
     return (

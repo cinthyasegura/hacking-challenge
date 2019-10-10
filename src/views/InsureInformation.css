@@ -1,24 +1,53 @@
-@import '../App';
+@import url("https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap");
+* {
+  font-family: 'Lato', sans-serif;
+}
 
 .container {
-  @include gridContainer();
-  grid-template-columns: repeat(2, 1fr);
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'aside form';
+  height: 100vh;
+  width: auto;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
 }
 
 .aside {
-  @include leftSide();
+  background-color: #ef3340;
+  color: #ffffff;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: aside;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: skew(178deg);
+          transform: skew(178deg);
+  border-bottom-right-radius: 80px;
 }
 
 .form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
   grid-area: form;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 10%;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .input-select-section {
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .form select {
@@ -26,7 +55,8 @@
   width: 89px;
   height: 56px;
   border: 1px solid #d4d5e8;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   font-family: Lato;
@@ -42,7 +72,8 @@
   height: 56px;
   background: #ffffff;
   border: 1px solid #d4d5e8;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   font-family: Lato;
@@ -56,7 +87,8 @@
   width: 278px;
   height: 56px;
   border: 1px solid #d4d5e8;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
   margin-top: 16px;
   font-family: Lato;
@@ -67,11 +99,11 @@
   padding-left: 16px;
 }
 
-// no se esta usando
 .formInputs {
   width: 50%;
-  color: $gray;
+  color: #494f66;
 }
+
 .title-form {
   font-family: Lato;
   font-style: normal;
@@ -114,15 +146,17 @@
 }
 
 .text {
-  font-family: $roboto-font;
-  font-size: $text;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
   line-height: 24px;
   padding: 1rem 10rem;
   width: 50%;
-  transform: skew(-178deg);
+  -webkit-transform: skew(-178deg);
+          transform: skew(-178deg);
 }
+
 .primary-color {
-  color: $primary-color;
+  color: #ef3340;
 }
 
 .girl-image {
@@ -134,45 +168,50 @@
 .logo {
   padding: 0 8rem;
 }
+
 .header {
   line-height: 60px;
 }
 
 .line {
-  border: 1px solid $secondary-color;
+  border: 1px solid #f55d68;
 }
 
 .title {
   font-style: normal;
   font-weight: 300;
-  font-size: $h1;
+  font-size: 48px;
   line-height: 60px;
   letter-spacing: -0.8px;
 }
+
 .subtitle {
-  font-family: $roboto-font;
-  font-size: $h3;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
   margin-top: -20px;
   font-style: normal;
   font-weight: 300;
   padding-bottom: 15px;
-  // line-height: 0;
 }
+
 .icon {
-  background-color: $title-color;
-  // height: 10px;
+  background-color: #ffffff;
 }
 
 .footer {
   margin-top: 15%;
-  font-size: $h6;
+  font-size: 12px;
 }
+
 .input {
   border: 1px solid #d4d5e8;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 4px;
 }
+
 .checkbox {
   background: #92d66f;
   border-radius: 4px;
 }
+/*# sourceMappingURL=InsureInformation.css.map */

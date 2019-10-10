@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import InsureInformation from '../views/InsureInformation';
+import InsureInformation from '../views/intro/InsureInformation';
 
 import HolderInformation from '../views/HolderInformation';
 

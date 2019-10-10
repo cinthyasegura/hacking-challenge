@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import DataProvider from './context/Context';
 import Navigation from './utils/navigation';
 

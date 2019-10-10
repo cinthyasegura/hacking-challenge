@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './HolderInformation.css';
+import './HolderInformation.scss';
 import LeftSide from '../shared/screens/LeftSide';
 import Input from '../shared/components/Input';
 

@@ -18,6 +18,8 @@ class DataProvider extends Component {
         method: 'POST'
       });
       const data = await fetchData.json();
+      console.log(data)
+
       this.setState({ data });
     } catch (error) {
       console.warn(error);

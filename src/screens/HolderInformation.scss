@@ -1,0 +1,15 @@
+@import '../App';
+
+.wrapper {
+  @include gridContainer();
+}
+.aside {
+  @include redSide();
+  grid-template-columns: 0.5fr 1.5fr;
+}
+
+.girl-image {
+  position: absolute;
+  margin-left: 60%;
+  margin-top: 25%;
+}

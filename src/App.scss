@@ -1,54 +1,55 @@
-@import url("https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap");
-* {
-  font-family: 'Lato', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css?family=Lato|Roboto&display=swap');
 
-.container {
-  display: -ms-grid;
-  display: grid;
-      grid-template-areas: 'aside form';
-  height: 100vh;
-  width: auto;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-}
+$primary-color: #ef3340;
+$secondary-color: #f55d68;
+$text-color: #676f8f;
+$title-color: #ffffff;
+$gray: #494f66;
+$roboto-font: 'Roboto', sans-serif;
+$border-radius: 5;
+$h1: 48px;
+$h3: 18px;
+$text: 16px;
+$h6: 12px;
 
-.aside {
-  background-color: #ef3340;
-  color: #ffffff;
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
+@mixin redSide {
+  background-color: $primary-color;
+  color: $title-color;
   grid-area: aside;
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-  -webkit-transform: skew(178deg);
-          transform: skew(178deg);
+  transform-origin: top left;
+  transform: skew(178deg);
   border-bottom-right-radius: 80px;
   z-index: -1;
 }
+@mixin gridContainer {
+  display: grid;
+  grid-template-areas: 'aside form';
+  height: 100vh;
+  width: auto;
+}
+
+* {
+  font-family: 'Lato', sans-serif;
+}
+.container {
+  @include gridContainer();
+  grid-template-columns: 1fr 1fr;
+}
+
+.aside {
+  @include redSide();
+}
 
 .form {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
   grid-area: form;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-top: 10%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .input-select-section {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
 }
 
 .form select {
@@ -56,8 +57,7 @@
   width: 89px;
   height: 56px;
   border: 1px solid #d4d5e8;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   font-family: Lato;
@@ -73,8 +73,7 @@
   height: 56px;
   background: #ffffff;
   border: 1px solid #d4d5e8;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   font-family: Lato;
@@ -88,8 +87,7 @@
   width: 278px;
   height: 56px;
   border: 1px solid #d4d5e8;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 4px;
   margin-top: 16px;
   font-family: Lato;
@@ -100,11 +98,11 @@
   padding-left: 16px;
 }
 
+// no se esta usando
 .formInputs {
   width: 50%;
-  color: #494f66;
+  color: $gray;
 }
-
 .title-form {
   font-family: Lato;
   font-style: normal;
@@ -147,17 +145,15 @@
 }
 
 .text {
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-family: $roboto-font;
+  font-size: $text;
   line-height: 24px;
   padding: 1rem 10rem;
   width: 50%;
-  -webkit-transform: skew(-178deg);
-          transform: skew(-178deg);
+  transform: skew(-178deg);
 }
-
 .primary-color {
-  color: #ef3340;
+  color: $primary-color;
 }
 
 .girl-image {
@@ -169,50 +165,45 @@
 .logo {
   padding: 0 8rem;
 }
-
 .header {
   line-height: 60px;
 }
 
 .line {
-  border: 1px solid #f55d68;
+  border: 1px solid $secondary-color;
 }
 
 .title {
   font-style: normal;
   font-weight: 300;
-  font-size: 48px;
+  font-size: $h1;
   line-height: 60px;
   letter-spacing: -0.8px;
 }
-
 .subtitle {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-family: $roboto-font;
+  font-size: $h3;
   margin-top: -20px;
   font-style: normal;
   font-weight: 300;
   padding-bottom: 15px;
+  // line-height: 0;
 }
-
 .icon {
-  background-color: #ffffff;
+  background-color: $title-color;
+  // height: 10px;
 }
 
 .footer {
   margin-top: 15%;
-  font-size: 12px;
+  font-size: $h6;
 }
-
 .input {
   border: 1px solid #d4d5e8;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 4px;
 }
-
 .checkbox {
   background: #92d66f;
   border-radius: 4px;
 }
-/*# sourceMappingURL=App.css.map */

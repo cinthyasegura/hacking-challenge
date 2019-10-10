@@ -24,7 +24,6 @@
   -webkit-transform: skew(178deg);
           transform: skew(178deg);
   border-bottom-right-radius: 80px;
-  z-index: -1;
 }
 
 .form {
@@ -215,4 +214,33 @@
   background: #92d66f;
   border-radius: 4px;
 }
-/*# sourceMappingURL=App.css.map */
+
+.wrapper {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'aside form';
+  height: 100vh;
+  width: auto;
+}
+
+.aside {
+  background-color: #ef3340;
+  color: #ffffff;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: aside;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  -webkit-transform: skew(178deg);
+          transform: skew(178deg);
+  border-bottom-right-radius: 80px;
+  -ms-grid-columns: 0.5fr 1.5fr;
+      grid-template-columns: 0.5fr 1.5fr;
+}
+
+.girl-image {
+  position: absolute;
+  margin-left: 60%;
+  margin-top: 25%;
+}
+/*# sourceMappingURL=HolderInformation.css.map */

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import DataProvider from './context/Context';
-import Navigation from './shared/utils/navigation';
+import Navigation from './utils/navigation';
 
 function App() {
   return (

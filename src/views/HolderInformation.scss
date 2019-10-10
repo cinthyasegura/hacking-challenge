@@ -2,14 +2,20 @@
 
 .wrapper {
   @include gridContainer();
+  grid-template-columns: 0.5fr 1fr;
+  height: 100vh;
+  width: auto;
 }
 .aside {
-  @include redSide();
-  grid-template-columns: 0.5fr 1.5fr;
+  @include leftSide();
 }
 
 .girl-image {
   position: absolute;
   margin-left: 60%;
   margin-top: 25%;
+}
+
+.form {
+  grid-area: form;
 }

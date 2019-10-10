@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import InsureInformation from '../../screens/InsureInformation';
+import InsureInformation from '../views/InsureInformation';
 
-import HolderInformation from '../../screens/HolderInformation';
+import HolderInformation from '../views/HolderInformation';
 
 const Navigation = () => (
   <>

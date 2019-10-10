@@ -9,8 +9,8 @@
       grid-template-areas: 'aside form';
   height: 100vh;
   width: auto;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
 }
 
 .aside {
@@ -24,7 +24,6 @@
   -webkit-transform: skew(178deg);
           transform: skew(178deg);
   border-bottom-right-radius: 80px;
-  z-index: -1;
 }
 
 .form {

@@ -221,6 +221,10 @@
       grid-template-areas: 'aside form';
   height: 100vh;
   width: auto;
+  -ms-grid-columns: 0.5fr 1fr;
+      grid-template-columns: 0.5fr 1fr;
+  height: 100vh;
+  width: auto;
 }
 
 .aside {
@@ -234,13 +238,17 @@
   -webkit-transform: skew(178deg);
           transform: skew(178deg);
   border-bottom-right-radius: 80px;
-  -ms-grid-columns: 0.5fr 1.5fr;
-      grid-template-columns: 0.5fr 1.5fr;
 }
 
 .girl-image {
   position: absolute;
   margin-left: 60%;
   margin-top: 25%;
+}
+
+.form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: form;
 }
 /*# sourceMappingURL=HolderInformation.css.map */

@@ -1,0 +1,175 @@
+@import '../App';
+
+.container {
+  @include gridContainer();
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.aside {
+  @include leftSide();
+}
+
+.form {
+  grid-area: form;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-select-section {
+  flex-direction: row;
+}
+
+.form select {
+  background: $title-color;
+  width: 89px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+  padding-left: $text;
+}
+
+.input-select {
+  width: 190px;
+  height: 56px;
+  background: $title-color;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  text-align: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+}
+
+.input {
+  width: 278px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: $border-radius;
+  margin-top: $text;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: $text;
+  padding-left: $text;
+}
+
+// no se esta usando
+.formInputs {
+  width: 50%;
+  color: $gray;
+}
+.title-form {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.2px;
+}
+
+.subtitle-form {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $text;
+  line-height: 24px;
+}
+
+.checkbox-proteccion {
+  margin-top: 32px;
+}
+
+.checkbox-cc {
+  margin-top: 24px;
+}
+
+.primary-button {
+  margin-top: 48px;
+  background: #ef3340;
+  border-radius: 6px;
+  width: 206px;
+  height: 56px;
+  text-align: center;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.text {
+  font-family: $roboto-font;
+  font-size: $text;
+  line-height: 24px;
+  padding: 1rem 10rem;
+  width: 50%;
+  transform: skew(-178deg);
+}
+.primary-color {
+  color: $primary-color;
+}
+
+.girl-image {
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 10%;
+}
+
+.logo {
+  padding: 0 8rem;
+}
+.header {
+  line-height: 60px;
+}
+
+.line {
+  border: 1px solid $secondary-color;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h1;
+  line-height: 60px;
+  letter-spacing: -0.8px;
+}
+.subtitle {
+  font-family: $roboto-font;
+  font-size: $h3;
+  margin-top: -20px;
+  font-style: normal;
+  font-weight: 300;
+  padding-bottom: 15px;
+  // line-height: 0;
+}
+.icon {
+  background-color: $title-color;
+  // height: 10px;
+}
+
+.footer {
+  margin-top: 15%;
+  font-size: $h6;
+}
+.input {
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.checkbox {
+  background: #92d66f;
+  border-radius: 4px;
+}

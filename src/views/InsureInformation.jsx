@@ -5,9 +5,8 @@ import logo from '../assets/logo.svg';
 import ic_medicine from '../assets/ic_medicine.svg';
 import girl from '../assets/girl.svg';
 import CheckBox from '../shared/components/CheckBox';
-import Button from '../shared/components/Button';
-import { onlyNumbers } from '../shared/utils/regex';
-import Aside from '../shared/components/Aside';
+// import Button from '../shared/components/Button';
+import { onlyNumbers } from '../utils/regex';
 
 class InsureInformation extends Component {
   constructor(props) {
@@ -26,7 +25,6 @@ class InsureInformation extends Component {
     const { requestPermisions } = this.state;
     return (
       <div className='container'>
-        {/* <Aside> */}
         <aside className='aside'>
           <header className='header'>
             <img src={logo} alt='logo' className='logo' />
@@ -59,7 +57,6 @@ class InsureInformation extends Component {
             </p>
             <p className='footer'>© 2018 RIMAC Seguros y Reaseguros. </p>
           </div>
-          {/* </Aside> */}
         </aside>
 
         <div className='girl-image'>

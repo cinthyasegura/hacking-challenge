@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Button = props => {
   return (
-    <button onClick={props.onClick} {...props}>
-      {props.title}
-    </button>
+    <Link to={props.route}>
+      <button onClick={props.onClick} disabled={props.disabled} {...props}>
+        {props.title}
+      </button>
+    </Link>
   );
 };
 export default Button;

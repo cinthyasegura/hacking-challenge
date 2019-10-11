@@ -16,18 +16,8 @@
   margin-top: 25%;
 }
 
-.form-align-left {
-  grid-area: form;
-  display: flex;
-  margin-top: 5%;
-  flex-direction: column;
-  margin-left: 30%;
-}
-
 .form-steps {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  @include fontLatoNormal();
   font-size: 12px;
   line-height: 17px;
 }
@@ -55,7 +45,5 @@
 }
 
 .bottom {
-  display: flex;
-  margin-left: 50px;
-  align-content: space-around;
+  padding-left: 100px;
 }

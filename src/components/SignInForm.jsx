@@ -5,7 +5,6 @@ import logo from '../assets/logo.svg';
 import ic_medicine from '../assets/ic_medicine.svg';
 import girl from '../assets/girl.svg';
 import CheckBox from '../shared/components/CheckBox';
-import { onlyNumbers } from '../utils/regex';
 
 const SignInForm = ({
   requestPermisions,
@@ -63,7 +62,6 @@ const SignInForm = ({
             Protégelos <span className='primary-color'>ahora</span>
           </p>
           <p className='subtitle-form'>Ingresa los datos del titular.</p>
-
           <div className='input-select-section'>
             <select>
               <option>DNI</option>
@@ -71,7 +69,6 @@ const SignInForm = ({
             <Input
               type='number'
               placeholder='Nro. de Documento'
-              pattern={onlyNumbers}
               className='input-select'
               name='dniNumber'
               value={dniNumber}
@@ -88,7 +85,6 @@ const SignInForm = ({
             onChange={onChange}
             errors={errors.userName && errors.userName[0]}
           />
-
           <div className='margin-top-checkbox'>
             <CheckBox
               value='Acepto la Política de Protección de Datos Personales y los Términos y Condiciones.'
@@ -105,7 +101,6 @@ const SignInForm = ({
               className='checkbox-cc'
             />
           </div>
-
           <Link
             to={{
               pathname: route,
@@ -114,10 +109,10 @@ const SignInForm = ({
                 userName
               }
             }}
-            onClick={() => goToSteps()}
-            className='primary-button'
           >
-            Comencemos
+            <button onClick={() => goToSteps()} className='primary-button'>
+              Comencemos
+            </button>
           </Link>
         </main>
       </div>

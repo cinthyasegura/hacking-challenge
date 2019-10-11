@@ -4,19 +4,19 @@ export const DataContext = React.createContext();
 export const DataConsumer = DataContext.Consumer;
 
 const DataProvider = props => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const url = 'https://freestyle.getsandbox.com/dummy/obtenerdatospersona';
+      const url = 'https://front-challenge-cinthyasegura.getsandbox.com/';
 
       try {
         const getData = await fetch(url, {
           method: 'POST'
         });
         const dataResponse = await getData.json();
-        setData(dataResponse);
-        console.log(dataResponse);
+        setData([dataResponse.data]);
+        console.log([dataResponse.data]);
       } catch (error) {
         console.warn(error);
       }

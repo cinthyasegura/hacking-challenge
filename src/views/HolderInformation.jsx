@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './HolderInformation.scss';
 import LeftSide from '../shared/screens/LeftSide';
 import Input from '../shared/components/Input';
 import RadioButton from '../shared/components/RadioButton';
+import Button from '../shared/components/Button';
 
 class HolderInformation extends Component {
   render() {
     const { dniNumber, userName } = this.props.location.state;
+
     return (
       <div className='wrapper'>
         <LeftSide />
@@ -50,9 +53,18 @@ class HolderInformation extends Component {
           </p>
           <RadioButton value='No' className='radiobutton margin-top-24' />
           <RadioButton value='Si' className='radiobutton margin-top-16' />
-          <div className='margin-left-16'>
-            <span>Modificar DNI</span>
-            <button className='primary-button'>Continuar ></button>
+          <div className='bottom'>
+            <a className='margin-left-16 h6' href='/'>
+              Modificar DNI
+            </a>
+            <Link to='/step-2'>
+              <button
+                onClick={() => {}}
+                className='primary-button margin-left-16'
+              >
+                Continuar >
+              </button>
+            </Link>
           </div>
         </div>
       </div>

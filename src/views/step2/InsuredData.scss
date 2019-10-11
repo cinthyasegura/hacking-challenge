@@ -1,0 +1,22 @@
+@import '../../App.scss';
+
+.divider {
+  width: 474px;
+  height: 0px;
+  border: 1px solid #edeff5;
+  margin-left: 0;
+}
+
+.insured-count-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  color: #939dff;
+ @include fontLatoNormal()
+  font-size: $h6;
+  line-height:$text;
+  text-align: right;
+  letter-spacing: 0.2px;
+}

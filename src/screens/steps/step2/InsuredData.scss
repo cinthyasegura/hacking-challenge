@@ -1,4 +1,4 @@
-@import '../../App.scss';
+@import '../../../App.scss';
 
 .divider {
   width: 474px;
@@ -14,9 +14,9 @@
 
 .link {
   color: #939dff;
- @include fontLatoNormal()
+  @include fontLatoNormal();
   font-size: $h6;
-  line-height:$text;
+  line-height: $text;
   text-align: right;
   letter-spacing: 0.2px;
 }

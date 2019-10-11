@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { getUsers } from '../api/reads';
 
 export const DataContext = React.createContext();
 export const DataConsumer = DataContext.Consumer;
@@ -8,15 +9,9 @@ const DataProvider = props => {
 
   useEffect(() => {
     async function fetchData() {
-      const url = 'https://front-challenge-cinthyasegura.getsandbox.com/';
-
       try {
-        const getData = await fetch(url, {
-          method: 'POST'
-        });
-        const dataResponse = await getData.json();
-        setData([dataResponse.data]);
-        console.log([dataResponse.data]);
+        const dataResponse = await getUsers();
+        setData(dataResponse);
       } catch (error) {
         console.warn(error);
       }

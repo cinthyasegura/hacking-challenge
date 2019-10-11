@@ -36,7 +36,7 @@ $h6: 12px;
 }
 
 @mixin input {
-  @include fontLatoNormal()
+  @include fontLatoNormal();
   width: 278px;
   height: 56px;
   border: 1px solid #d4d5e8;
@@ -46,6 +46,22 @@ $h6: 12px;
   font-size: $text;
   line-height: $text;
   padding-left: $text;
+}
+
+@mixin primary-button {
+  background: #ef3340;
+  border-radius: 6px;
+  width: 151px;
+  height: 48px;
+  text-align: center;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: $title-color;
+  box-shadow: none;
 }
 
 * {
@@ -150,7 +166,7 @@ body {
 }
 
 .input-select {
- @include fontLatoNormal()
+  @include fontLatoNormal();
   width: 190px;
   height: 56px;
   background: $title-color;
@@ -163,7 +179,7 @@ body {
 }
 
 .input-select-disable {
- @include fontLatoNormal()
+  @include fontLatoNormal();
   width: 285px;
   height: 56px;
   background: #f7f7fa;
@@ -180,7 +196,7 @@ body {
 }
 
 select {
-  @include fontLatoNormal()
+  @include fontLatoNormal();
   background: $title-color;
   width: 89px;
   height: 56px;
@@ -194,7 +210,7 @@ select {
 }
 
 .select-disable {
-  @include fontLatoNormal()
+  @include fontLatoNormal();
   background: #f7f7fa;
   width: 89px;
   height: 56px;
@@ -208,7 +224,7 @@ select {
 }
 
 .radiobutton {
- @include fontLatoNormal()
+  @include fontLatoNormal();
   font-size: 14px;
   line-height: 16px;
   color: #d4d5e8;
@@ -221,7 +237,7 @@ select {
 
 .input-select-large {
   @include input();
-  width: 288px; 
+  width: 288px;
 }
 
 .form-align-left {

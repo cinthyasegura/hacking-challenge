@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './HolderInformation.scss';
-import LeftSide from '../shared/screens/LeftSide';
-import Input from '../shared/components/Input';
-import RadioButton from '../shared/components/RadioButton';
-import Button from '../shared/components/Button';
+import LeftSide from '../../../shared/components/LeftSide';
+import Input from '../../../shared/ui/Input';
+import RadioButton from '../../../shared/ui/RadioButton';
 
 class HolderInformation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isChecked: true
+    };
+  }
   render() {
     const { dniNumber, userName } = this.props.location.state;
+    const { isChecked } = this.state;
 
     return (
       <div className='wrapper'>
@@ -58,12 +64,19 @@ class HolderInformation extends Component {
               Modificar DNI
             </a>
             <Link to='/step-2'>
-              <button
-                onClick={() => {}}
-                className='primary-button margin-left-16'
-              >
-                Continuar >
-              </button>
+              {isChecked ? (
+                <button
+                  // onClick={() => {}}
+                  className='primary-button margin-left-16'
+                >
+                  Continuar >
+                </button>
+              ) : (
+                <button className='button-disabled margin-left-16' disabled>
+                  {' '}
+                  Continuar >
+                </button>
+              )}
             </Link>
           </div>
         </div>

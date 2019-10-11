@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './InsureInformation.scss';
-import SignInForm from '../../components/SignInForm';
+import SignInForm from './SignInForm';
 import { validation } from '../../utils/validation';
 import { DataContext } from '../../context/Context';
 
@@ -64,11 +64,11 @@ class InsureInformation extends Component {
   };
 
   render() {
-    const { data, setData } = this.context;
-    const user = data.data;
-    if (user !== undefined) {
-      console.log(user.tercero.numDocumento);
-    }
+    // const { data, setData } = this.context;
+
+    // if (data !== undefined) {
+    //   console.log(data.tercero.numDocumento);
+    // }
 
     const {
       requestPermisions,

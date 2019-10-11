@@ -17,76 +17,8 @@
   flex-direction: column;
 }
 
-.input-select-section {
-  flex-direction: row;
-}
-
-.form select {
-  background: #ffffff;
-  width: 89px;
-  height: 56px;
-  border: 1px solid #d4d5e8;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-align: center;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  padding-left: 16px;
-}
-
-.input-select {
-  width: 190px;
-  height: 56px;
-  background: #ffffff;
-  border: 1px solid #d4d5e8;
-  box-sizing: border-box;
-  border-radius: 4px;
-  text-align: center;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-}
-
-.input {
-  width: 278px;
-  height: 56px;
-  border: 1px solid #d4d5e8;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin-top: 16px;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 16px;
-  padding-left: 16px;
-}
-
 .margin-top-checkbox {
   margin-top: 2rem;
-}
-// no se esta usando
-
-.title-form {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 28px;
-  line-height: 36px;
-  letter-spacing: -0.2px;
-}
-
-.subtitle-form {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
 }
 
 .checkbox-cc {
@@ -117,9 +49,6 @@
   padding: 1rem 10rem;
   width: 50%;
   transform: skew(-178deg);
-}
-.primary-color {
-  color: $primary-color;
 }
 
 .girl-image-main {

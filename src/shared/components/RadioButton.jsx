@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
 
 const RadioButton = ({
-    preferenceSelected
+  checked: propChecked,
+  className,
+  disabled,
+  value,
+  onClick
 }) => {
-    const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(propChecked);
 
-    const handleCheckboxChange = event => {
-        setChecked(event.target.value);
-      };
+  const handleRadioButtonChange = () => {
+    setChecked(!checked);
+    if (onClick) onClick();
+  };
 
-return (
-    <input type="checkbox" id="cbox2" value="second_checkbox" checked={checked}
-    onChange={handleCheckboxChange}/>
-
-)
-}
-export default RadioButton
+  return (
+    <div className={className}>
+      <label>
+        <input
+          type='radio'
+          name='react-tips'
+          value={value}
+          checked={checked}
+          disabled={disabled}
+          onChange={() => handleRadioButtonChange()}
+          className='form-check-input'
+        />
+        {value}
+      </label>
+    </div>
+  );
+};
+export default RadioButton;

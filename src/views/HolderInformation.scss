@@ -16,6 +16,18 @@
   margin-top: 25%;
 }
 
-.form {
+.form-align-left {
   grid-area: form;
+  display: flex;
+  margin-top: 5%;
+  flex-direction: column;
+  margin-left: 30%;
+}
+
+.form-steps {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 17px;
 }

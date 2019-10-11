@@ -1,39 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Context = React.createContext();
-export const DataConsumer = Context.Consumer;
+export const DataContext = React.createContext();
+export const DataConsumer = DataContext.Consumer;
 
-class DataProvider extends Component {
-  state = { data: [] };
+const DataProvider = props => {
+  const [data, setData] = useState({});
 
-  componentDidMount() {
-    this.getData();
-  }
+  useEffect(() => {
+    async function fetchData() {
+      const url = 'https://freestyle.getsandbox.com/dummy/obtenerdatospersona';
 
-  getData = async () => {
-    const url = 'https://freestyle.getsandbox.com/dummy/obtenerdatospersona';
-
-    try {
-      const fetchData = await fetch(url, {
-        method: 'POST'
-      });
-      const data = await fetchData.json();
-      console.log(data)
-
-      this.setState({ data });
-    } catch (error) {
-      console.warn(error);
+      try {
+        const getData = await fetch(url, {
+          method: 'POST'
+        });
+        const dataResponse = await getData.json();
+        setData(dataResponse);
+        console.log(dataResponse);
+      } catch (error) {
+        console.warn(error);
+      }
     }
-  };
+    fetchData();
+  }, []);
 
-  render() {
-    const { data } = this.state;
-
-    return (
-      <Context.Provider value={{ data }}>
-        {this.props.children}
-      </Context.Provider>
-    );
-  }
-}
+  return (
+    <DataContext.Provider value={{ data, setData }}>
+      {props.children}
+    </DataContext.Provider>
+  );
+};
 export default DataProvider;

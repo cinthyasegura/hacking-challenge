@@ -8,6 +8,7 @@ $gray: #494f66;
 $roboto-font: 'Roboto', sans-serif;
 $border-radius: 4px;
 $h1: 48px;
+$h2: 28px;
 $h3: 18px;
 $text: 16px;
 $h6: 12px;
@@ -33,5 +34,187 @@ $h6: 12px;
 }
 
 body {
-    margin: 0;
+  margin: 0;
+}
+
+.h1 {
+  font-size: $h1;
+}
+
+.h2 {
+  font-size: $h2;
+}
+
+.h3 {
+  font-size: $h3;
+}
+
+.h6 {
+  font-size: $h6;
+}
+
+.primary-color {
+  color: $primary-color;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.margin-top-0 {
+  margin-top: 0;
+}
+
+.margin-top-16 {
+  margin-top: 16px;
+}
+
+.margin-top-24 {
+  margin-top: 24px;
+}
+
+.margin-top-32 {
+  margin-top: 32px;
+}
+
+.margin-top-64 {
+  margin-top: 64px;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.title-form {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h2;
+  line-height: 36px;
+  letter-spacing: -0.2px;
+  color: $gray;
+}
+
+.subtitle-form-text {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $text;
+  line-height: 24px;
+  color: $gray;
+}
+
+.subtitle-form-h3 {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h3;
+  line-height: 36px;
+  color: $gray;
+}
+
+.subtitle-form-h6 {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h6;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: $gray;
+}
+
+.input-select-section {
+  flex-direction: row;
+}
+
+.input-select {
+  width: 190px;
+  height: 56px;
+  background: $title-color;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+}
+
+.input-select-disable {
+  width: 190px;
+  height: 56px;
+  background: #f7f7fa;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+}
+
+.input {
+  width: 278px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 16px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 16px;
+  padding-left: 16px;
+}
+
+select {
+  background: $title-color;
+  width: 89px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+  padding-left: 16px;
+}
+
+.select-disable {
+  background: #f7f7fa;
+  width: 89px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: 19px;
+  padding-left: 16px;
+}
+
+.radiobutton {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #d4d5e8;
+}
+
+.error-messages {
+  margin-left: 15px;
+  color: $secondary-color;
+  font-size: $h6;
 }

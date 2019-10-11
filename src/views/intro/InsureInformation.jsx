@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
 import './InsureInformation.scss';
 import SignInForm from '../../components/SignInForm';
+import { validation } from '../../utils/validation';
+import { DataContext } from '../../context/Context';
+
+const constraints = {
+  dniNumber: {
+    presence: true,
+    format: {
+      pattern: '[0-9]+',
+      message: '^Solo se permite números.'
+    },
+    length: {
+      is: 8,
+      message: '^Nro de DNI debe tener 8 digitos'
+    }
+  },
+  userName: {
+    presence: true,
+    format: {
+      pattern: '[a-zA-Z ]+',
+      message: '^Solo se permite letras.'
+    }
+  }
+};
 
 class InsureInformation extends Component {
   constructor(props) {
@@ -9,7 +32,7 @@ class InsureInformation extends Component {
       requestPermisions: false,
       dniNumber: '',
       userName: '',
-      errors: '',
+      formErrors: { dniNumber: '', userName: '' },
       route: ''
     };
   }
@@ -29,16 +52,29 @@ class InsureInformation extends Component {
   };
 
   goToSteps = () => {
-    const { requestPermisions, dniNumber, userName } = this.state;
-    if (dniNumber && userName !== '') this.setState({ route: '/information' });
+    const { dniNumber, userName, formErrors } = this.state;
+
+    const errors = validation({ dniNumber, userName }, constraints, formErrors);
+
+    if (errors !== undefined) {
+      this.setState({ formErrors: errors });
+    } else {
+      this.setState({ route: '/information' });
+    }
   };
 
   render() {
+    const { data, setData } = this.context;
+    const user = data.data;
+    if (user !== undefined) {
+      console.log(user.tercero.numDocumento);
+    }
+
     const {
       requestPermisions,
       dniNumber,
       userName,
-      errors,
+      formErrors,
       route
     } = this.state;
 
@@ -49,7 +85,7 @@ class InsureInformation extends Component {
         userName={userName}
         onChange={this.onChange}
         handleCheck={this.handleCheck}
-        errors={errors}
+        errors={formErrors}
         goToSteps={this.goToSteps}
         route={route}
         {...this.props}
@@ -57,5 +93,6 @@ class InsureInformation extends Component {
     );
   }
 }
+InsureInformation.contextType = DataContext;
 
 export default InsureInformation;

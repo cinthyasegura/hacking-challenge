@@ -5,7 +5,6 @@ import logo from '../assets/logo.svg';
 import ic_medicine from '../assets/ic_medicine.svg';
 import girl from '../assets/girl.svg';
 import CheckBox from '../shared/components/CheckBox';
-import Button from '../shared/components/Button';
 import { onlyNumbers } from '../utils/regex';
 
 const SignInForm = ({
@@ -15,7 +14,8 @@ const SignInForm = ({
   onChange,
   handleCheck,
   goToSteps,
-  route
+  route,
+  errors
 }) => {
   return (
     <div className='container'>
@@ -68,7 +68,7 @@ const SignInForm = ({
             <select>
               <option>DNI</option>
             </select>
-            <input
+            <Input
               type='number'
               placeholder='Nro. de Documento'
               pattern={onlyNumbers}
@@ -76,6 +76,7 @@ const SignInForm = ({
               name='dniNumber'
               value={dniNumber}
               onChange={onChange}
+              errors={errors.dniNumber && errors.dniNumber[0]}
             />
           </div>
           <Input
@@ -85,6 +86,7 @@ const SignInForm = ({
             value={userName}
             name='userName'
             onChange={onChange}
+            errors={errors.userName && errors.userName[0]}
           />
 
           <div className='margin-top-checkbox'>
@@ -108,10 +110,12 @@ const SignInForm = ({
             to={{
               pathname: route,
               state: {
-                dniNumber
+                dniNumber,
+                userName
               }
             }}
-            onClick={goToSteps}
+            onClick={() => goToSteps()}
+            className='primary-button'
           >
             Comencemos
           </Link>

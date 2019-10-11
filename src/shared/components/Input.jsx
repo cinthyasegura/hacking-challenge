@@ -10,7 +10,7 @@ const Input = props => {
         required
         {...props}
       />
-      <span className='error-messages'>{props.errors}</span>
+      <span className='error-messages margin-left-16'>{props.errors}</span>
     </>
   );
 };

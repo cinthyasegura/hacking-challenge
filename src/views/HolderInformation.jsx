@@ -44,12 +44,16 @@ class HolderInformation extends Component {
               disabled
             />
           </div>
-          <Input type='email' placeholder='Correo' className='input' />
+          <Input type='email' placeholder='Correo' className='large-input' />
           <p className='subtitle-form-h6 margin-top-32 margin-bottom-0'>
             ¿ESTE SEGURO ES PARA TI?
           </p>
           <RadioButton value='No' className='radiobutton margin-top-24' />
           <RadioButton value='Si' className='radiobutton margin-top-16' />
+          <div className='margin-left-16'>
+            <span>Modificar DNI</span>
+            <button className='primary-button'>Continuar ></button>
+          </div>
         </div>
       </div>
     );

@@ -31,3 +31,31 @@
   font-size: 12px;
   line-height: 17px;
 }
+
+.primary-button {
+  // margin-top: 48px;
+  background: #ef3340;
+  border-radius: 6px;
+  width: 151px;
+  height: 48px;
+  text-align: center;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  color: $title-color;
+  box-shadow: none;
+}
+
+.large-input {
+  @include input();
+  width: 376px;
+}
+
+.bottom {
+  display: flex;
+  margin-left: 50px;
+  align-content: space-around;
+}

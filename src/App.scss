@@ -29,6 +29,21 @@ $h6: 12px;
   width: auto;
 }
 
+@mixin input {
+  width: 278px;
+  height: 56px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 16px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $text;
+  line-height: $text;
+  padding-left: $text;
+}
+
 * {
   font-family: 'Lato', sans-serif;
 }
@@ -66,7 +81,7 @@ body {
 }
 
 .margin-top-16 {
-  margin-top: 16px;
+  margin-top: $text;
 }
 
 .margin-top-24 {
@@ -83,6 +98,9 @@ body {
 
 .margin-bottom-0 {
   margin-bottom: 0;
+}
+.margin-left-16 {
+  margin-left: $text;
 }
 
 .title-form {
@@ -143,7 +161,7 @@ body {
 }
 
 .input-select-disable {
-  width: 190px;
+  width: 285px;
   height: 56px;
   background: #f7f7fa;
   border: 1px solid #d4d5e8;
@@ -158,18 +176,7 @@ body {
 }
 
 .input {
-  width: 278px;
-  height: 56px;
-  border: 1px solid #d4d5e8;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin-top: 16px;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: $text;
-  line-height: 16px;
-  padding-left: 16px;
+  @include input();
 }
 
 select {
@@ -214,7 +221,6 @@ select {
 }
 
 .error-messages {
-  margin-left: 15px;
   color: $secondary-color;
   font-size: $h6;
 }

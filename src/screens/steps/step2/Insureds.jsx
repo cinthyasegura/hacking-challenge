@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import LeftSide from '../../../shared/components/LeftSide';
 import { DataContext } from '../../../context/Context';
-import InsuredData from './InsuredData';
+import NewInsuredForm from './NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 
 const Insureds = () => {
@@ -31,7 +31,6 @@ const Insureds = () => {
 
   const deleteInsured = async docId => {
     await deleteUSer(docId);
-    // console.log(data);
   };
 
   return (
@@ -47,7 +46,7 @@ const Insureds = () => {
         <p>Preséntanos a quién vamos a proteger.</p>
 
         {newInsured ? (
-          <InsuredData />
+          <NewInsuredForm />
         ) : (
           data.map(request => (
             <div key={request.numDocumento}>

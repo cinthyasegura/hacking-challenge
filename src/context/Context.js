@@ -19,6 +19,8 @@ const DataProvider = props => {
     fetchData();
   }, []);
 
+  console.log(data);
+
   return (
     <DataContext.Provider value={{ data, setData }}>
       {props.children}

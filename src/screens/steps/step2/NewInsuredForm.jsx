@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './InsuredData.scss';
+import './NewInsuredForm.scss';
 import Input from '../../../shared/ui/Input';
 import RadioButton from '../../../shared/ui/RadioButton';
 import { DataContext } from '../../../context/Context';
@@ -26,7 +26,7 @@ const constraints = {
   }
 };
 
-class InsuredData extends Component {
+class NewInsuredForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -117,6 +117,6 @@ class InsuredData extends Component {
     );
   }
 }
-InsuredData.contextType = DataContext;
+NewInsuredForm.contextType = DataContext;
 
-export default InsuredData;
+export default NewInsuredForm;

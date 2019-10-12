@@ -6,12 +6,8 @@ import { DataContext } from '../../../context/Context';
 import NewInsuredForm from './components/NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 import InsuredsList from './components/InsuredsList';
-import {
-  useFormInput,
-  useForm
-} from '../../../shared/customHooks/UseFormInput';
+import { useForm } from '../../../shared/customHooks/UseFormInput';
 import { validation } from '../../../utils/validation';
-import back from '../../../assets/back.svg';
 import Steps from '../../../shared/components/Steps';
 
 const constraints = {
@@ -42,11 +38,6 @@ const constraints = {
 
 const Insureds = () => {
   const [newInsured, setNewInsured] = useState(false);
-  // const dniNumber = useFormInput('');
-  // const fullName = useFormInput('');
-  // const mothersLastName = useFormInput('');
-  // const fathersLastName = useFormInput('');
-  // const birthDate = useFormInput('');
   const [formErrors, setFormErrors] = useState({
     dniNumber: '',
     fullName: '',
@@ -129,7 +120,7 @@ const Insureds = () => {
           <>
             <InsuredsList deleteInsured={deleteInsured} />
             <p onClick={handleSetNewInsured}>Quiero asegurar a alguien más </p>
-            <Link to='/step-2'>
+            <Link to='/step-3'>
               <button
                 onClick={() => {}}
                 className='primary-button margin-left-16'

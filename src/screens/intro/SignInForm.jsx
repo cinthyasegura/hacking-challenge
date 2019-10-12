@@ -32,22 +32,22 @@ const SignInForm = ({
             En accidentes <b>los cubrimos al 100%</b> para que se recuperen por
             completo.
           </p>
-          <>
+          <p>
             <img className='icon' src={ic_medicine} alt='maletin' />
-            <span>Atención médica y medicinas</span>
-          </>
-          <>
+            Atención médica y medicinas
+          </p>
+          <p>
             <img className='icon' src={ic_medicine} alt='maletin' />
-            <span>Examenes de laboratorio</span>
-          </>
-          <>
+            Examenes de laboratorio
+          </p>
+          <p>
             <img className='icon' src={ic_medicine} alt='maletin' />
-            <span>Hospitalización y rehabilitación</span>
-          </>
-          <>
+            Hospitalización y rehabilitación
+          </p>
+          <p>
             <img className='icon' src={ic_medicine} alt='maletin' />
-            <span>Cirugías y operaciones</span>
-          </>
+            Cirugías y operaciones
+          </p>
           <p className='footer'>© 2018 RIMAC Seguros y Reaseguros. </p>
         </div>
       </aside>

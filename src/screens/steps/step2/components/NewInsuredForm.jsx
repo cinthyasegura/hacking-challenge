@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './NewInsuredForm.scss';
-import Input from '../../../shared/ui/Input';
-import RadioButton from '../../../shared/ui/RadioButton';
-import { DataContext } from '../../../context/Context';
+import '../Insureds.scss';
+import Input from '../../../../shared/ui/Input';
+import RadioButton from '../../../../shared/ui/RadioButton';
+import { DataContext } from '../../../../context/Context';
 
 const constraints = {
   dniNumber: {

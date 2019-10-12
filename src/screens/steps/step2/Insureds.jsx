@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 import LeftSide from '../../../shared/components/LeftSide';
 import { DataContext } from '../../../context/Context';
-import NewInsuredForm from './NewInsuredForm';
+import NewInsuredForm from './components/NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
+import InsuredsList from './components/InsuredsList';
 
 const Insureds = () => {
   const [newInsured, setNewInsured] = useState(false);
@@ -48,38 +49,14 @@ const Insureds = () => {
         {newInsured ? (
           <NewInsuredForm />
         ) : (
-          data.map(request => (
-            <div key={request.numDocumento}>
-              <hr className='divider margin-top-32 margin-bottom-0' />
-              <div className='insured-count-wrapper margin-top-24 margin-bottom-0'>
-                <p className='subtitle-form-h6 margin-top-0 margin-bottom-0'>
-                  {request.nomCompleto}
-                </p>
-                <button
-                  className='link margin-top-0 margin-bottom-0'
-                  onClick={() => deleteInsured(request.numDocumento)}
-                >
-                  ELIMINAR
-                </button>
-                <p>
-                  DNI {request.numDocumento} - FN {request.fecNacimiento}
-                </p>
-              </div>
-            </div>
-          ))
+          <>
+            <InsuredsList
+              newInsured={newInsured}
+              deleteInsured={deleteInsured}
+            />
+            <p onClick={handleSetNewInsured}>Quiero asegurar a alguien más </p>
+          </>
         )}
-
-        {/* </ScrollView>
-        <Button onPress={this.createPost} title="Create Post" />
-      </View>
-    )
-  }
-
-  createPost = () => {
-    this.props.router.push('/create')
-  } */}
-
-        <p onClick={handleSetNewInsured}>Quiero asegurar a alguien más </p>
         <Link to='/step-2'>
           <button onClick={() => {}} className='primary-button margin-left-16'>
             Continuar >
@@ -91,3 +68,15 @@ const Insureds = () => {
 };
 
 export default Insureds;
+
+{
+  /* </ScrollView>
+        <Button onPress={this.createPost} title="Create Post" />
+      </View>
+    )
+  }
+
+  createPost = () => {
+    this.props.router.push('/create')
+  } */
+}

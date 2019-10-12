@@ -120,7 +120,7 @@ const Insureds = () => {
             mothersLastName={values.mothersLastName}
             fathersLastName={values.fathersLastName}
             birthDate={values.birthDate}
-            onChange={handleChange}
+            handleChange={handleChange}
             handleSubmit={handleSubmit}
             formErrors={formErrors}
             handleSetNewInsured={handleSetNewInsured}

@@ -23,7 +23,7 @@ class NewInsuredForm extends Component {
       birthDate,
       mothersLastName,
       fathersLastName,
-      onChange,
+      handleChange,
       handleSubmit,
       handleSetNewInsured,
       formErrors
@@ -57,7 +57,7 @@ class NewInsuredForm extends Component {
               className='input-select-large'
               name='dniNumber'
               value={dniNumber}
-              onChange={onChange}
+              onChange={handleChange}
               errors={formErrors.dniNumber && formErrors.dniNumber[0]}
             />
           </div>
@@ -68,7 +68,7 @@ class NewInsuredForm extends Component {
             className='large-input'
             name='fullName'
             value={fullName}
-            onChange={onChange}
+            onChange={handleChange}
             errors={formErrors.fullName && formErrors.fullName[0]}
           />
           <Input
@@ -77,7 +77,7 @@ class NewInsuredForm extends Component {
             className='large-input'
             name='mothersLastName'
             value={mothersLastName}
-            onChange={onChange}
+            onChange={handleChange}
             errors={formErrors.mothersLastName && formErrors.mothersLastName[0]}
           />
           <Input
@@ -86,7 +86,7 @@ class NewInsuredForm extends Component {
             className='large-input'
             name='fathersLastName'
             value={fathersLastName}
-            onChange={onChange}
+            onChange={handleChange}
             errors={formErrors.fathersLastName && formErrors.fathersLastName[0]}
           />
           <Input
@@ -97,7 +97,7 @@ class NewInsuredForm extends Component {
             onBlur={this.onBlur}
             name='birthDate'
             value={birthDate}
-            onChange={onChange}
+            onChange={handleChange}
           />
           <p className='subtitle-form-h6 margin-top-32 margin-bottom-0'>
             GÉNERO

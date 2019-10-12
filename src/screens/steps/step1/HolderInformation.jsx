@@ -4,6 +4,7 @@ import './HolderInformation.scss';
 import LeftSide from '../../../shared/components/LeftSide';
 import Input from '../../../shared/ui/Input';
 import RadioButton from '../../../shared/ui/RadioButton';
+import Steps from '../../../shared/components/Steps';
 
 class HolderInformation extends Component {
   constructor(props) {
@@ -21,9 +22,7 @@ class HolderInformation extends Component {
         <LeftSide />
 
         <div className='form-align-left'>
-          <p className='form-steps'>
-            <span className='primary-color'>PASO 1</span> DE 4
-          </p>
+          <Steps actualStep={1} />
           <p className='title-form margin-top-64 margin-bottom-0'>
             Hola{' '}
             <span className='primary-color'>{`${userName

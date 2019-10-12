@@ -7,7 +7,7 @@ const Input = props => {
       <input
         pattern={props.pattern}
         disabled={props.disabled}
-        required
+        // required
         {...props}
       />
       <span className='error-messages margin-left-16'>{props.errors}</span>

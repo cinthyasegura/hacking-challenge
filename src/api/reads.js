@@ -10,7 +10,7 @@ export const getDocType = async () => {
   }
 };
 
-export const getpaymentMethod = async () => {
+export const getPaymentMethod = async () => {
   const paymentMethodUrl = `${url}/formapago`;
   try {
     const getData = await fetch(paymentMethodUrl);

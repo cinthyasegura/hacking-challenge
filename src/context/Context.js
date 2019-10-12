@@ -8,7 +8,7 @@ const DataProvider = props => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    async function setData() {
       try {
         const dataResponse = await getUsers();
         setData(dataResponse);
@@ -16,7 +16,7 @@ const DataProvider = props => {
         console.warn(error);
       }
     }
-    fetchData();
+    setData();
   }, []);
 
   console.log(data);

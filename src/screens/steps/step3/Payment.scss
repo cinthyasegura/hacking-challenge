@@ -1,0 +1,122 @@
+@import '../../../App.scss';
+
+.pricebox-container-check {
+  width: 142px;
+  height: 112px;
+  background: #ffffff;
+  border: 1px solid #92d66f;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+  margin-right: 10px;
+}
+
+.pricebox-container-uncheck {
+  width: 152px;
+  height: 122px;
+  background: #ffffff;
+  border: 1px solid #f7f7fa;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.pricebox-title {
+  @include fontLatoNormal();
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #939dff;
+}
+
+.pricebox-price {
+  @include fontLatoNormal();
+  font-size: 24px;
+  line-height: 36px;
+  color: #494f66;
+}
+
+.pricebox-subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h6;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: $text-color;
+}
+
+.price-group-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.pricebox-container-check {
+  width: 152px;
+  height: 122px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #92d66f;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+  margin-right: 10px;
+}
+
+.pricebox-container-uncheck {
+  width: 152px;
+  height: 122px;
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #f7f7fa;
+  border-radius: 12px;
+  padding-left: 16px;
+  padding-bottom: 16px;
+  margin-right: 10px;
+}
+
+.pricebox-title {
+  @include fontLatoNormal();
+  font-weight: bold;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  color: #939dff;
+  height: 16px;
+}
+
+.pricebox-price {
+  @include fontLatoNormal();
+  font-size: 24px;
+  line-height: 36px;
+  color: #494f66;
+  height: 30px;
+  display: flex;
+}
+
+.pricebox-subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h6;
+  line-height: 16px;
+  letter-spacing: 0.2px;
+  color: $text-color;
+  height: 16px;
+}
+
+.badge {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.check-icon {
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 110px;
+}

@@ -1,19 +1,36 @@
 import React, { useState } from 'react';
-import './PriceBox.scss';
+import '../Payment.scss';
+import checkIcon from '../../../../assets/check.svg';
+import unCheckIcon from '../../../../assets/circle.svg';
 
 const PriceBox = ({
-  checked: propChecked,
+  index,
+  isCheck,
   title,
   price,
-  subTitle,
-  onClick
+  // subTitle,
+  setSelectedItem
 }) => {
-  const [checked, setChecked] = useState(propChecked);
-
+  // No se puede obtener la Frecuencias por Api asi que se tiene que colocar manualmente
+  const subTitleTexts = ['por 12 meses', 'Ahorras S/ 80'];
+  const subTitle = subTitleTexts[index];
   return (
-    <div className='pricebox-container-check'>
+    <div
+      onClick={() => setSelectedItem({ index, title, price, subTitle })}
+      className={
+        isCheck ? 'pricebox-container-check' : 'pricebox-container-uncheck'
+      }
+    >
+      {isCheck ? (
+        <img src={checkIcon} alt='check-icon' className='check-icon' />
+      ) : (
+        <img src={unCheckIcon} alt='uncheck-icon' className='check-icon' />
+      )}
       <p className='pricebox-title margin-top-32 margin-bottom-0'>{title}</p>
-      <p className='pricebox-price margin-top-8 margin-bottom-0'>{price}</p>
+      <p className='pricebox-price margin-top-8 margin-bottom-0'>
+        <span className='badge'>S/</span>
+        {price}
+      </p>
       <p className='pricebox-subtitle margin-top-4 margin-bottom-0'>
         {subTitle}
       </p>

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { DataContext } from '../../../../context/Context';
+import { DataContext, DataConsumer } from '../../../../context/Context';
 
-const InsuredsList = ({ newInsured, deleteInsured }) => {
-  const { data, setData } = useContext(DataContext);
+const InsuredsList = ({ deleteInsured }) => {
+  //   const { data, setData } = useContext(DataContext);
   return (
-    <>
-      {!newInsured &&
-        data.map(request => (
+    <DataConsumer>
+      {value => {
+        return value.data.map(request => (
           <div key={request.numDocumento}>
             <hr className='divider margin-top-32 margin-bottom-0' />
             <div className='insured-count-wrapper margin-top-24 margin-bottom-0'>
@@ -24,8 +24,9 @@ const InsuredsList = ({ newInsured, deleteInsured }) => {
               </p>
             </div>
           </div>
-        ))}
-    </>
+        ));
+      }}
+    </DataConsumer>
   );
 };
 export default InsuredsList;

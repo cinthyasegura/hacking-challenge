@@ -6,12 +6,59 @@ import { DataContext } from '../../../context/Context';
 import NewInsuredForm from './components/NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 import InsuredsList from './components/InsuredsList';
+import {
+  useFormInput,
+  useForm
+} from '../../../shared/customHooks/UseFormInput';
+import { validation } from '../../../utils/validation';
+import back from '../../../assets/back.svg';
+import Steps from '../../../shared/components/Steps';
+
+const constraints = {
+  dniNumber: {
+    presence: { allowEmpty: false, message: '^Completar el campo.' },
+    format: {
+      pattern: '[0-9]+',
+      message: '^Solo se permite números.'
+    },
+    length: {
+      is: 8,
+      message: '^Nro de DNI debe tener 8 digitos'
+    }
+  },
+  fullName: {
+    presence: { allowEmpty: false, message: '^Completar el campo.' }
+  },
+  mothersLastName: {
+    presence: { allowEmpty: false, message: '^Completar el campo.' }
+  },
+  fathersLastName: {
+    presence: { allowEmpty: false, message: '^Completar el campo.' }
+  },
+  birthDate: {
+    presence: { allowEmpty: false, message: '^Completar el campo.' }
+  }
+};
 
 const Insureds = () => {
   const [newInsured, setNewInsured] = useState(false);
-  const { data, setData } = useContext(DataContext);
+  // const dniNumber = useFormInput('');
+  // const fullName = useFormInput('');
+  // const mothersLastName = useFormInput('');
+  // const fathersLastName = useFormInput('');
+  // const birthDate = useFormInput('');
+  const [formErrors, setFormErrors] = useState({
+    dniNumber: '',
+    fullName: '',
+    mothersLastName: '',
+    fathersLastName: '',
+    birthDate: ''
+  });
 
-  console.log(data);
+  const { values, handleChange, handleSubmit } = useForm(Submit);
+
+  // const { data, setData } = useContext(DataContext);
+
   const datas = {
     nomCompleto: 'Chester Segura Tarazona',
     telefono: '921300000',
@@ -25,43 +72,73 @@ const Insureds = () => {
     correo: 'cinthyaless@gmail.com'
   };
 
-  const handleSetNewInsured = async () => {
+  const handleSetNewInsured = () => {
     setNewInsured(!newInsured);
     // await createNewUser(datas);
   };
 
   const deleteInsured = async docId => {
     await deleteUSer(docId);
+    // setData(data);
   };
+
+  async function Submit() {
+    const errors = validation(
+      {
+        dniNumber: values.dniNumber,
+        fullName: values.fullName,
+        mothersLastName: values.mothersLastName,
+        fathersLastName: values.fathersLastName,
+        birthDate: values.birthDate
+      },
+      constraints,
+      formErrors
+    );
+
+    if (errors !== undefined) {
+      setFormErrors(errors);
+    }
+    // } else {
+    //   await createNewUser(datas);
+    // }
+  }
 
   return (
     <div className='wrapper'>
       <LeftSide />
       <div className='form-align-left'>
-        <p className='form-steps'>
-          <span className='primary-color'>PASO 2</span> DE 4
-        </p>
+        <Steps actualStep={2} />
         <p className='title-form margin-top-64 margin-bottom-0'>
           Tus <span className='primary-color'>asegurados</span>{' '}
         </p>
         <p>Preséntanos a quién vamos a proteger.</p>
 
         {newInsured ? (
-          <NewInsuredForm />
+          <NewInsuredForm
+            dniNumber={values.dniNumber}
+            fullName={values.fullName}
+            mothersLastName={values.mothersLastName}
+            fathersLastName={values.fathersLastName}
+            birthDate={values.birthDate}
+            onChange={handleChange}
+            handleSubmit={handleSubmit}
+            formErrors={formErrors}
+            handleSetNewInsured={handleSetNewInsured}
+          />
         ) : (
           <>
-            <InsuredsList
-              newInsured={newInsured}
-              deleteInsured={deleteInsured}
-            />
+            <InsuredsList deleteInsured={deleteInsured} />
             <p onClick={handleSetNewInsured}>Quiero asegurar a alguien más </p>
+            <Link to='/step-2'>
+              <button
+                onClick={() => {}}
+                className='primary-button margin-left-16'
+              >
+                Continuar >
+              </button>
+            </Link>
           </>
         )}
-        <Link to='/step-2'>
-          <button onClick={() => {}} className='primary-button margin-left-16'>
-            Continuar >
-          </button>
-        </Link>
       </div>
     </div>
   );

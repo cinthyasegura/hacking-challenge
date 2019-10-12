@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import LeftSide from '../../../shared/components/LeftSide';
 import { DataContext } from '../../../context/Context';
-import InsuredData from '../step2/InsuredData';
+import InsuredData from './InsuredData';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 
 const Insureds = () => {
@@ -19,7 +19,7 @@ const Insureds = () => {
     nombres: 'Chester',
     tipoDocumento: '01',
     apellidoMaterno: 'Tarazona',
-    numDocumento: '00456675',
+    numDocumento: '48324201',
     fecNacimiento: '15/11/1993',
     correo: 'cinthyaless@gmail.com'
   };
@@ -31,6 +31,7 @@ const Insureds = () => {
 
   const deleteInsured = async docId => {
     await deleteUSer(docId);
+    // console.log(data);
   };
 
   return (

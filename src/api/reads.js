@@ -34,6 +34,9 @@ export const getUsers = async () => {
   const usersUrl = `${url}/personas`;
   try {
     const getData = await fetch(usersUrl);
+    // const dati = await getData.json();
+    // console.log(dati);
+
     return await getData.json();
   } catch (error) {
     console.warn(error);

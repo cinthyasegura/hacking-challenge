@@ -53,7 +53,7 @@ class InsuredData extends Component {
     const { data, setData } = this.context;
     const { dniNumber, fullName, birthDate } = this.state;
     return (
-      <div>
+      <div className='insured-data-container'>
         <hr className='divider margin-top-32 margin-bottom-0' />
         <div className='insured-count-wrapper margin-top-24 margin-bottom-0'>
           <p className='subtitle-form-h6 margin-top-0 margin-bottom-0'>
@@ -65,7 +65,7 @@ class InsuredData extends Component {
         <p className='subtitle-form-h3 margin-top-32 margin-bottom-0'>
           {`Datos del asegurado Nº${data.length + 1}`}
         </p>
-        <div /* className='input-select-section margin-top-24' */>
+        <div className='input-select-section margin-top-24'>
           <select className='select'>
             <option>DNI</option>
           </select>

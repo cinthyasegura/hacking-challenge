@@ -7,9 +7,17 @@
   margin-left: 0;
 }
 
+.insured-data-container {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
 .insured-count-wrapper {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
+  width: 474px;
 }
 
 .link {

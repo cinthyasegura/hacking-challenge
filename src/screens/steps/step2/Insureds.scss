@@ -65,17 +65,14 @@
 }
 
 .subtitle-form-text-grid {
-  font-family: Roboto;
-  font-style: normal;
+  @include fontRoboto();
   font-weight: 300;
   font-size: 14px;
   color: $text-color;
 }
 
 .link-grid {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  @include fontLatoNormal();
   font-size: $h6;
   line-height: 23px;
   letter-spacing: 0.2px;
@@ -84,8 +81,7 @@
 }
 
 .title-form-grid {
-  font-family: Lato;
-  font-style: normal;
+  @include fontLatoNormal();
   font-weight: 300;
   font-size: $h2;
   margin: 0;
@@ -94,9 +90,15 @@
 }
 
 .subtitle-form-h3-grid {
-  font-family: Lato;
-  font-style: normal;
+  @include fontLatoNormal();
   font-weight: 300;
   font-size: $h3;
   color: $gray;
+}
+
+.add-insureds {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 250px;
 }

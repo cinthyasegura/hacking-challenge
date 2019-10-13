@@ -108,9 +108,7 @@
 }
 
 .badge {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  @include fontLatoNormal();
   font-size: 14px;
   line-height: 30px;
 }
@@ -119,4 +117,80 @@
   position: absolute;
   margin-top: 8px;
   margin-left: 110px;
+}
+
+.no-border {
+  @include input();
+  border: none;
+}
+
+.no-border:focus {
+  outline: none;
+}
+
+.border {
+  border: solid 1px #d4d5e8;
+  height: 56px;
+  width: 433px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $border-radius;
+}
+
+.apply-btn {
+  @include primary-button();
+  @include fontLatoNormal();
+  width: 90px;
+  height: 40px;
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.cupon-selected {
+  @include fontRoboto();
+  font-style: normal;
+  color: $text-color;
+  font-weight: 300;
+  font-size: $text;
+  line-height: 24px;
+}
+
+.redeem-cupon {
+  width: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid-payment-form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas:
+    'titular-name titular-name titular-name'
+    'cc cc cc'
+    'expire expire cvv'
+    'email email email ';
+  width: 434px;
+}
+
+.titular-name {
+  grid-area: titular-name;
+}
+
+.cc {
+  grid-area: cc;
+}
+
+.expire {
+  grid-area: expire;
+}
+
+.cvv {
+  grid-area: cvv;
+}
+
+.email {
+  grid-area: email;
 }

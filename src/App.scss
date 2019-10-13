@@ -49,7 +49,6 @@ $h6: 12px;
   border: 1px solid #d4d5e8;
   box-sizing: border-box;
   border-radius: 4px;
-  margin-top: 16px;
   font-size: $text;
   line-height: $text;
   padding-left: $text;
@@ -139,11 +138,17 @@ body {
 .margin-bottom-0 {
   margin-bottom: 0;
 }
+
 .margin-left-16 {
   margin-left: $text;
 }
+
 .margin-right-16 {
   margin-right: $text;
+}
+
+.margin-right-32 {
+  margin-right: 32px;
 }
 
 .gray {
@@ -169,8 +174,7 @@ body {
 }
 
 .subtitle-form-text {
-  font-family: Roboto;
-  font-style: normal;
+  @include fontRoboto();
   font-weight: 300;
   font-size: $text;
   line-height: 24px;
@@ -226,6 +230,7 @@ body {
 
 .input {
   @include input();
+  margin-top: 16px;
 }
 
 select {
@@ -270,11 +275,13 @@ select {
 
 .input-select-large {
   @include input();
+  margin-top: 16px;
   width: 288px;
 }
 
 .input-large {
   @include input();
+  margin-top: 16px;
   width: 376px;
 }
 
@@ -284,12 +291,6 @@ select {
   margin-top: 5%;
   flex-direction: column;
   margin-left: 30%;
-}
-
-.form-steps {
-  @include fontLatoNormal();
-  font-size: 12px;
-  line-height: 17px;
 }
 
 .link {
@@ -318,6 +319,7 @@ select {
 
 .button-right {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   width: 478px;
   text-decoration: none;
@@ -341,4 +343,14 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.form-steps {
+  @include fontLatoNormal();
+  font-size: 12px;
+  width: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: -40px;
 }

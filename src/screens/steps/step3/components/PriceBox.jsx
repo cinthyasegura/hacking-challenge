@@ -3,15 +3,7 @@ import '../Payment.scss';
 import checkIcon from '../../../../assets/check.svg';
 import unCheckIcon from '../../../../assets/circle.svg';
 
-const PriceBox = ({
-  index,
-  isCheck,
-  title,
-  price,
-  // subTitle,
-  setSelectedItem
-}) => {
-  // No se puede obtener la Frecuencias por Api asi que se tiene que colocar manualmente
+const PriceBox = ({ index, isCheck, title, price, setSelectedItem }) => {
   const subTitleTexts = ['por 12 meses', 'Ahorras S/ 80'];
   const subTitle = subTitleTexts[index];
   return (

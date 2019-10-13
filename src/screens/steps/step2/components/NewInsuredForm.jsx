@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import '../Insureds.scss';
+import { DataContext } from '../../../../context/Context';
 import Input from '../../../../shared/ui/Input';
 import RadioButton from '../../../../shared/ui/RadioButton';
-import { DataContext } from '../../../../context/Context';
+import '../Insureds.scss';
 
 class NewInsuredForm extends Component {
   onFocus = e => {
@@ -16,7 +15,7 @@ class NewInsuredForm extends Component {
   };
 
   render() {
-    const { data, setData } = this.context;
+    const { data } = this.context;
     const {
       dniNumber,
       fullName,
@@ -108,10 +107,16 @@ class NewInsuredForm extends Component {
           />
           <RadioButton value='Femenino' className='radiobutton margin-top-12' />
           <div className='button-right'>
-            <span className='link pointer' onClick={handleSetNewInsured}>
+            <span
+              className='link pointer margin-right-32'
+              onClick={handleSetNewInsured}
+            >
               Cancelar
             </span>
-            <button type='submit' className='primary-button width-219'>
+            <button
+              type='submit'
+              className='primary-button width-219 margin-top-0 margin-bottom-0'
+            >
               Guardar edición
             </button>
           </div>

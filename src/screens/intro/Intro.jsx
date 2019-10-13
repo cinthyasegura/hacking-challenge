@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './InsureInformation.scss';
-import SignInForm from './SignInForm';
+import './Intro.scss';
+import HolderForm from './components/HolderForm';
 import { validation } from '../../utils/validation/validation';
 import { DataContext } from '../../context/Context';
 import { constraints } from '../../utils/validation/constraints';
+import InsureDetails from './components/InsureDetails';
 
-class InsureInformation extends Component {
+class Intro extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,7 +44,7 @@ class InsureInformation extends Component {
     if (errors !== undefined) {
       this.setState({ formErrors: errors });
     } else {
-      this.setState({ route: '/information' });
+      this.setState({ route: '/step-1' });
     }
   };
 
@@ -63,20 +64,23 @@ class InsureInformation extends Component {
     } = this.state;
 
     return (
-      <SignInForm
-        requestPermisions={requestPermisions}
-        dniNumber={dniNumber}
-        userName={userName}
-        onChange={this.onChange}
-        handleCheck={this.handleCheck}
-        errors={formErrors}
-        goToSteps={this.goToSteps}
-        route={route}
-        {...this.props}
-      />
+      <div className='container'>
+        <InsureDetails />
+        <HolderForm
+          requestPermisions={requestPermisions}
+          dniNumber={dniNumber}
+          userName={userName}
+          onChange={this.onChange}
+          handleCheck={this.handleCheck}
+          errors={formErrors}
+          goToSteps={this.goToSteps}
+          route={route}
+          {...this.props}
+        />
+      </div>
     );
   }
 }
-InsureInformation.contextType = DataContext;
+Intro.contextType = DataContext;
 
-export default InsureInformation;
+export default Intro;

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import LeftSide from '../../../shared/components/LeftSide';
 import { DataContext, DataConsumer } from '../../../context/Context';
 import NewInsuredForm from './components/NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 import InsuredsList from './components/InsuredsList';
-import { useFormInput } from '../../../shared/customHooks/UseFormInput';
+import { useSubmitFormInput } from '../../../utils/customHooks/customHooks';
 import { validation } from '../../../utils/validation/validation';
 import Steps from '../../../shared/components/Steps';
 import add from '../../../assets/add.svg';
 import { constraints } from '../../../utils/validation/constraints';
 import './Insureds.scss';
+import { getUsers } from '../../../api/reads';
 
 const Insureds = () => {
   const [newInsured, setNewInsured] = useState(false);
@@ -22,9 +23,9 @@ const Insureds = () => {
     birthDate: ''
   });
 
-  const { values, handleChange, handleSubmit } = useFormInput(Submit);
+  const { values, handleChange, handleSubmit } = useSubmitFormInput(Submit);
 
-  // const { data, setData } = useContext(DataContext);
+  const { data, setData } = useContext(DataContext);
 
   const inputValues = {
     dniNumber: values.dniNumber,
@@ -46,6 +47,8 @@ const Insureds = () => {
 
   const deleteInsured = async docId => {
     await deleteUSer(docId);
+    const dataResponse = await getUsers();
+    setData(dataResponse);
   };
 
   async function Submit() {
@@ -67,6 +70,8 @@ const Insureds = () => {
       };
 
       await createNewUser(inputValuesOnSave);
+      const dataResponse = await getUsers();
+      setData(dataResponse);
       handleSetNewInsured();
     }
   }
@@ -96,13 +101,14 @@ const Insureds = () => {
             handleSetNewInsured={handleSetNewInsured}
           />
         ) : (
+          // <p>no data</p>
           <DataConsumer>
             {value => (
               <>
                 <InsuredsList deleteInsured={deleteInsured} />
                 <div
                   onClick={handleSetNewInsured}
-                  className='margin-top-32 pointer'
+                  className='add-insureds margin-top-32 pointer'
                 >
                   <img src={add} alt='agregar' className='margin-right-16' />
                   <span className='purple-link'>

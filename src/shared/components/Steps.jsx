@@ -9,9 +9,11 @@ const Steps = props => {
   };
 
   return (
-    <div className='form-steps' onClick={goBack}>
+    <div className='form-steps pointer' onClick={goBack}>
       <img src={back} alt='atras' />
-      <span className='primary-color'>{`PASO ${props.actualStep}`}</span> DE 4
+      <div>
+        <span className='primary-color'>{`PASO ${props.actualStep}`}</span> DE 4
+      </div>
     </div>
   );
 };

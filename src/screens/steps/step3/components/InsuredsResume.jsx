@@ -3,6 +3,7 @@ import { DataConsumer } from '../../../../context/Context';
 
 const InsuredsResume = () => {
   return (
+    // <p>no data</p>
     <DataConsumer>
       {value => (
         <>

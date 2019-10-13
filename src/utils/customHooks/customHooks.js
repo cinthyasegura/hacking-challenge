@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useFormInput = callback => {
+export const useSubmitFormInput = callback => {
   const [values, setValues] = useState({});
 
   const handleSubmit = event => {
@@ -26,10 +26,27 @@ export const useFormInput = callback => {
 export const useBoolean = initialBoolean => {
   const [boolean, setBoolean] = useState(initialBoolean);
 
-  const handleUpdate = _boolean => setBoolean(_boolean);
+  const handleUpdate = boolean => setBoolean(boolean);
 
   return {
     value: boolean,
     updateBoolean: handleUpdate
+  };
+};
+
+export const useTargetValueFormInput = () => {
+  const [values, setValues] = useState({});
+
+  const handleChange = event => {
+    event.persist();
+    setValues(values => ({
+      ...values,
+      [event.target.name]: event.target.value
+    }));
+  };
+
+  return {
+    handleChange,
+    values
   };
 };

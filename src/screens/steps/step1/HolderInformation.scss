@@ -25,11 +25,6 @@
   @include primary-button();
 }
 
-.large-input {
-  @include input();
-  width: 376px;
-}
-
 .bottom {
   padding-left: 100px;
 }

@@ -6,7 +6,7 @@ export const getDocType = async () => {
     const getData = await fetch(docTypeUrl);
     return await getData.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };
 
@@ -16,7 +16,7 @@ export const getPaymentMethod = async () => {
     const getData = await fetch(paymentMethodUrl);
     return await getData.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };
 
@@ -26,7 +26,7 @@ export const getPromCodes = async code => {
     const getData = await fetch(promCodeUrl);
     return await getData.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };
 
@@ -36,7 +36,7 @@ export const getUsers = async () => {
     const getData = await fetch(usersUrl);
     return await getData.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };
 
@@ -46,6 +46,6 @@ export const getUserData = async userDoc => {
     const getData = await fetch(userUrl);
     return await getData.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };

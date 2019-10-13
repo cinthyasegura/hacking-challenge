@@ -5,6 +5,9 @@ $secondary-color: #f55d68;
 $text-color: #676f8f;
 $title-color: #ffffff;
 $gray: #494f66;
+$light-gray: #a9b1d1;
+$disabled-color: #edeff5;
+$purple: #939dff;
 $roboto-font: 'Roboto', sans-serif;
 $border-radius: 4px;
 $h1: 48px;
@@ -26,6 +29,10 @@ $h6: 12px;
   font-family: Lato;
   font-style: normal;
   font-weight: normal;
+}
+
+@mixin fontRoboto {
+  font-family: Roboto;
 }
 
 @mixin gridContainer {
@@ -106,7 +113,9 @@ body {
 .margin-top-8 {
   margin-top: 8px;
 }
-
+.margin-top-12 {
+  margin-top: 12px;
+}
 .margin-top-16 {
   margin-top: $text;
 }
@@ -119,6 +128,10 @@ body {
   margin-top: 32px;
 }
 
+.margin-top-48 {
+  margin-top: 48px;
+}
+
 .margin-top-64 {
   margin-top: 64px;
 }
@@ -129,10 +142,25 @@ body {
 .margin-left-16 {
   margin-left: $text;
 }
+.margin-right-16 {
+  margin-right: $text;
+}
+
+.gray {
+  color: $gray;
+}
+
+.text-color {
+  color: $text-color;
+}
+
+.roboto-light {
+  @include fontRoboto();
+  font-style: Light;
+}
 
 .title-form {
-  font-family: Lato;
-  font-style: normal;
+  @include fontLatoNormal();
   font-weight: 300;
   font-size: $h2;
   line-height: 36px;
@@ -150,8 +178,7 @@ body {
 }
 
 .subtitle-form-h3 {
-  font-family: Lato;
-  font-style: normal;
+  @include fontLatoNormal();
   font-weight: 300;
   font-size: $h3;
   line-height: 36px;
@@ -159,8 +186,7 @@ body {
 }
 
 .subtitle-form-h6 {
-  font-family: Lato;
-  font-style: normal;
+  @include fontLatoNormal();
   font-weight: 300;
   font-size: $h6;
   line-height: 16px;
@@ -174,7 +200,7 @@ body {
 
 .input-select {
   @include fontLatoNormal();
-  width: 190px;
+  width: 285px;
   height: 56px;
   background: $title-color;
   border: 1px solid #d4d5e8;
@@ -247,6 +273,11 @@ select {
   width: 288px;
 }
 
+.input-large {
+  @include input();
+  width: 376px;
+}
+
 .form-align-left {
   grid-area: form;
   display: flex;
@@ -259,4 +290,55 @@ select {
   @include fontLatoNormal();
   font-size: 12px;
   line-height: 17px;
+}
+
+.link {
+  color: $purple;
+  @include fontLatoNormal();
+  font-size: $h6;
+  line-height: $text;
+  text-align: right;
+  letter-spacing: 0.2px;
+}
+
+.align-left-flex {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.checkbox {
+  background: #92d66f;
+  border-radius: 4px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.button-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 478px;
+  text-decoration: none;
+}
+
+.disabled-button {
+  @include primary-button();
+  margin-top: 48px;
+  color: $light-gray;
+  background: $disabled-color;
+  border-color: transparent;
+}
+
+.align-left-flex {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.display-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

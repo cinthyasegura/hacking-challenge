@@ -20,11 +20,83 @@
   width: 474px;
 }
 
-.link {
-  color: #939dff;
+.purple-link {
+  @include fontLatoNormal;
+  font-style: Regular;
+  color: $purple;
+  font-size: 14px;
+}
+.insureds-container-grid {
+  display: grid;
+  grid-template-columns: 278px 98px 98px;
+  width: 478px;
+}
+
+.display-flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-data {
+  font-family: $roboto-font;
+  font-style: Light;
+  font-size: $h6;
+  line-height: $h6;
+  color: $text-color;
+}
+
+.edit-delete {
   @include fontLatoNormal();
   font-size: $h6;
-  line-height: $text;
-  text-align: right;
+  line-height: $h1;
+  color: $light-gray;
+}
+
+.width-219 {
+  width: 219px;
+}
+
+.insurends-form-container-grid {
+  display: grid;
+  grid-template-columns: 130px 100px 1fr;
+  grid-auto-rows: 40px;
+  width: 478px;
+}
+
+.subtitle-form-text-grid {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  color: $text-color;
+}
+
+.link-grid {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: $h6;
+  line-height: 23px;
   letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: #939dff;
+}
+
+.title-form-grid {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h2;
+  margin: 0;
+  text-align: right;
+  color: #494f66;
+}
+
+.subtitle-form-h3-grid {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 300;
+  font-size: $h3;
+  color: $gray;
 }

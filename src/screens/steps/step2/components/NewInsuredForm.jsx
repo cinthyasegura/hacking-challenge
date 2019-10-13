@@ -37,7 +37,7 @@ class NewInsuredForm extends Component {
           </p>
           <p
             onClick={handleSetNewInsured}
-            className='link margin-top-0 margin-bottom-0'
+            className='link margin-top-0 margin-bottom-0 pointer'
           >
             VER TODOS
           </p>
@@ -46,7 +46,7 @@ class NewInsuredForm extends Component {
         <p className='subtitle-form-h3 margin-top-32 margin-bottom-0'>
           {`Datos del asegurado Nº${data.length + 1}`}
         </p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='align-left-flex'>
           <div className='input-select-section margin-top-24'>
             <select className='select'>
               <option>DNI</option>
@@ -65,7 +65,7 @@ class NewInsuredForm extends Component {
           <Input
             type='text'
             placeholder='Nombres'
-            className='large-input'
+            className='input-large'
             name='fullName'
             value={fullName}
             onChange={handleChange}
@@ -74,7 +74,7 @@ class NewInsuredForm extends Component {
           <Input
             type='text'
             placeholder='Apellidos Paternos'
-            className='large-input'
+            className='input-large'
             name='mothersLastName'
             value={mothersLastName}
             onChange={handleChange}
@@ -83,7 +83,7 @@ class NewInsuredForm extends Component {
           <Input
             type='text'
             placeholder='Apellidos Maternos'
-            className='large-input'
+            className='input-large'
             name='fathersLastName'
             value={fathersLastName}
             onChange={handleChange}
@@ -92,7 +92,7 @@ class NewInsuredForm extends Component {
           <Input
             type='text'
             placeholder='Fecha de nacimiento'
-            className='large-input'
+            className='input-large'
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             name='birthDate'
@@ -104,12 +104,17 @@ class NewInsuredForm extends Component {
           </p>
           <RadioButton
             value='Masculino'
-            className='radiobutton margin-top-24'
+            className='radiobutton margin-top-16'
           />
-          <RadioButton value='Femenino' className='radiobutton margin-top-16' />
-          <button type='submit' className='primary-button'>
-            Guardar edición
-          </button>
+          <RadioButton value='Femenino' className='radiobutton margin-top-12' />
+          <div className='button-right'>
+            <span className='link pointer' onClick={handleSetNewInsured}>
+              Cancelar
+            </span>
+            <button type='submit' className='primary-button width-219'>
+              Guardar edición
+            </button>
+          </div>
         </form>
       </div>
     );

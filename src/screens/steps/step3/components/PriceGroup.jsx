@@ -1,39 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import { getPaymentMethod } from '../../../../api/reads';
+import React, { useContext } from 'react';
 import PriceBox from './PriceBox';
+import DataContext, { DataConsumer } from '../../../../context/Context';
 import '../Payment.scss';
 
-const PriceGroup = ({ getSelectedData, insuredPeopleCount = 1 }) => {
-  const [paymentMethodsData, setPaymentMethodData] = useState([]);
-  const [selectedItem, setSelectedItem] = useState({});
-  // getSelectedData({selectedItem})
-
-  useEffect(() => {
-    async function setPaymentData() {
-      try {
-        const result = await getPaymentMethod();
-        setPaymentMethodData(result.data);
-      } catch (error) {
-        console.warn(error);
-      }
-    }
-    setPaymentData();
-  }, []);
-
+const PriceGroup = ({
+  insuredPeopleCount = 1,
+  paymentMethodsData,
+  selectedItem,
+  setSelectedItem
+}) => {
+  //   const { data, setData } = useContext(DataContext);
+  //   if (data && data.length > 0) {
   return (
-    <div className='price-group-container margin-top-32'>
-      {paymentMethodsData.map((paymentMethodData, i) => (
-        <PriceBox
-          key={i}
-          index={i}
-          isCheck={i === selectedItem.index}
-          title={paymentMethodData.tipo}
-          price={paymentMethodData.costo * insuredPeopleCount}
-          setSelectedItem={setSelectedItem}
-        />
-      ))}
-    </div>
+    <>
+      <DataConsumer>
+        {value => (
+          <div className='price-group-container margin-top-24'>
+            {paymentMethodsData.map((paymentMethod, i) => (
+              <PriceBox
+                key={i}
+                index={i}
+                isCheck={i === selectedItem.index}
+                title={paymentMethod.tipo}
+                price={paymentMethod.costo * value.data.length}
+                setSelectedItem={setSelectedItem}
+              />
+            ))}
+          </div>
+        )}
+        {/* {paymentMethodsData === undefined ? (
+          <PriceBox
+            title='No API data'
+            price={0}
+            setSelectedItem={setSelectedItem}
+          />
+        ) : ( */}
+        {/* )} */}
+      </DataConsumer>
+    </>
   );
+  //   }
 };
 
 export default PriceGroup;

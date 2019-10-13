@@ -1,32 +1,42 @@
 import React, { useContext } from 'react';
-import { DataContext, DataConsumer } from '../../../../context/Context';
+import { DataContext } from '../../../../context/Context';
+import '../Insureds.scss';
 
 const InsuredsList = ({ deleteInsured }) => {
-  //   const { data, setData } = useContext(DataContext);
+  const { data, setData } = useContext(DataContext);
   return (
-    <DataConsumer>
-      {value => {
-        return value.data.map(request => (
-          <div key={request.numDocumento}>
-            <hr className='divider margin-top-32 margin-bottom-0' />
-            <div className='insured-count-wrapper margin-top-24 margin-bottom-0'>
-              <p className='subtitle-form-h6 margin-top-0 margin-bottom-0'>
-                {request.nomCompleto}
-              </p>
-              <button
-                className='link margin-top-0 margin-bottom-0'
-                onClick={() => deleteInsured(request.numDocumento)}
-              >
-                ELIMINAR
-              </button>
-              <p>
+    // <DataConsumer>
+    //   {value => {
+    <>
+      {data.map(request => (
+        <>
+          <hr className='divider margin-top-16 margin-bottom-0' />
+          <div key={request.numDocumento} className='insureds-container-grid'>
+            <div className='margin-top-16'>
+              <p className='gray'>{request.nomCompleto}</p>
+              <p className='user-data'>
                 DNI {request.numDocumento} - FN {request.fecNacimiento}
               </p>
             </div>
+            <p
+              className='edit-delete margin-top-32 pointer'
+              onClick={() => deleteInsured(request.numDocumento)}
+            >
+              EDITAR
+            </p>
+            <p
+              className='edit-delete margin-top-32 pointer'
+              onClick={() => deleteInsured(request.numDocumento)}
+            >
+              ELIMINAR
+            </p>
           </div>
-        ));
-      }}
-    </DataConsumer>
+        </>
+      ))}
+      <hr className='divider margin-top-16 margin-bottom-0' />
+    </>
+    //   }}
+    // </DataConsumer>
   );
 };
 export default InsuredsList;

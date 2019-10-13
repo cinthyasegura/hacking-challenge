@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 
-const RadioButton = ({ checked: propChecked, className, disabled, value }) => {
-  const [checked, setChecked] = useState(propChecked);
+const RadioButton = props => {
+  // const [checked, setChecked] = useState(propChecked);
 
-  const handleRadioButtonChange = () => {
-    setChecked(!checked);
-  };
+  // const handleRadioButtonChange = () => {
+  //   setChecked(!checked);
+  // };
 
   return (
-    <div className={className}>
+    <div className={props.className}>
       <label>
         <input
           type='radio'
-          name='react-tips'
-          value={value}
-          checked={checked}
-          disabled={disabled}
-          onChange={() => handleRadioButtonChange()}
+          name='radio-button'
+          value='radio'
+          checked={props.checked}
+          disabled={props.disabled}
           className='form-check-input'
+          {...props}
         />
-        {value}
+        {props.value}
       </label>
     </div>
   );

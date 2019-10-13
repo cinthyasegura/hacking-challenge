@@ -11,7 +11,7 @@ export const createNewUser = async userData => {
     });
     return await addUser.json();
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };
 
@@ -22,6 +22,6 @@ export const deleteUSer = async userDoc => {
       method: 'DELETE'
     });
   } catch (error) {
-    console.warn(error);
+    return error;
   }
 };

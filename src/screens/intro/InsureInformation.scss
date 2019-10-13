@@ -24,6 +24,7 @@
 .checkbox-cc {
   margin: 1rem 0;
   font-size: $h6;
+  color: $text-color;
 }
 
 .primary-button {
@@ -93,9 +94,4 @@
 .footer {
   margin-top: 15%;
   font-size: $h6;
-}
-
-.checkbox {
-  background: #92d66f;
-  border-radius: 4px;
 }

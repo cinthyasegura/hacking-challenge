@@ -8,18 +8,18 @@ const DataProvider = props => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function setData() {
+    async function getData() {
       try {
         const dataResponse = await getUsers();
         setData(dataResponse);
       } catch (error) {
-        console.warn(error);
+        return error;
       }
     }
-    setData();
+    getData();
   }, []);
 
-  console.log(data);
+  console.log(data, 'data');
 
   return (
     <DataContext.Provider value={{ data, setData }}>

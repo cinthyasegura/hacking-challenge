@@ -1,40 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import LeftSide from '../../../shared/components/LeftSide';
-import { DataContext } from '../../../context/Context';
+import { DataContext, DataConsumer } from '../../../context/Context';
 import NewInsuredForm from './components/NewInsuredForm';
 import { deleteUSer, createNewUser } from '../../../api/writes';
 import InsuredsList from './components/InsuredsList';
-import { useForm } from '../../../shared/customHooks/UseFormInput';
-import { validation } from '../../../utils/validation';
+import { useFormInput } from '../../../shared/customHooks/UseFormInput';
+import { validation } from '../../../utils/validation/validation';
 import Steps from '../../../shared/components/Steps';
-
-const constraints = {
-  dniNumber: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' },
-    format: {
-      pattern: '[0-9]+',
-      message: '^Solo se permite números.'
-    },
-    length: {
-      is: 8,
-      message: '^Nro de DNI debe tener 8 digitos'
-    }
-  },
-  fullName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
-  },
-  mothersLastName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
-  },
-  fathersLastName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
-  },
-  birthDate: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
-  }
-};
+import add from '../../../assets/add.svg';
+import { constraints } from '../../../utils/validation/constraints';
+import './Insureds.scss';
 
 const Insureds = () => {
   const [newInsured, setNewInsured] = useState(false);
@@ -46,52 +22,53 @@ const Insureds = () => {
     birthDate: ''
   });
 
-  const { values, handleChange, handleSubmit } = useForm(Submit);
+  const { values, handleChange, handleSubmit } = useFormInput(Submit);
 
   // const { data, setData } = useContext(DataContext);
 
-  const datas = {
-    nomCompleto: 'Chester Segura Tarazona',
-    telefono: '921300000',
-    apellidoPaterno: 'Segura',
-    sexo: 'M',
-    nombres: 'Chester',
-    tipoDocumento: '01',
-    apellidoMaterno: 'Tarazona',
-    numDocumento: '48324201',
-    fecNacimiento: '15/11/1993',
-    correo: 'cinthyaless@gmail.com'
+  const inputValues = {
+    dniNumber: values.dniNumber,
+    fullName: values.fullName,
+    mothersLastName: values.mothersLastName,
+    fathersLastName: values.fathersLastName,
+    birthDate: values.birthDate
   };
 
-  const handleSetNewInsured = () => {
-    setNewInsured(!newInsured);
-    // await createNewUser(datas);
+  const constraintsValidations = {
+    dniNumber: constraints.dniNumber,
+    fullName: constraints.fullName,
+    mothersLastName: constraints.mothersLastName,
+    fathersLastName: constraints.fathersLastName,
+    birthDate: constraints.birthDate
   };
+
+  const handleSetNewInsured = () => setNewInsured(!newInsured);
 
   const deleteInsured = async docId => {
     await deleteUSer(docId);
-    // setData(data);
   };
 
   async function Submit() {
-    const errors = validation(
-      {
-        dniNumber: values.dniNumber,
-        fullName: values.fullName,
-        mothersLastName: values.mothersLastName,
-        fathersLastName: values.fathersLastName,
-        birthDate: values.birthDate
-      },
-      constraints,
-      formErrors
-    );
+    const errors = validation(inputValues, constraintsValidations, formErrors);
 
     if (errors !== undefined) {
       setFormErrors(errors);
+    } else {
+      const inputValuesOnSave = {
+        nomCompleto: `${values.fullName} ${values.mothersLastName} ${values.fathersLastName} `,
+        apellidoPaterno: `${values.fathersLastName}`,
+        sexo: 'M',
+        nombres: `${values.fullName}`,
+        tipoDocumento: '01',
+        apellidoMaterno: `${values.mothersLastName}`,
+        numDocumento: `${values.dniNumber}`,
+        fecNacimiento: `${values.birthDate}`,
+        correo: 'cinthyaless@gmail.com'
+      };
+
+      await createNewUser(inputValuesOnSave);
+      handleSetNewInsured();
     }
-    // } else {
-    //   await createNewUser(datas);
-    // }
   }
 
   return (
@@ -102,7 +79,9 @@ const Insureds = () => {
         <p className='title-form margin-top-64 margin-bottom-0'>
           Tus <span className='primary-color'>asegurados</span>{' '}
         </p>
-        <p>Preséntanos a quién vamos a proteger.</p>
+        <p className='text-color roboto-light'>
+          Preséntanos a quién vamos a proteger.
+        </p>
 
         {newInsured ? (
           <NewInsuredForm
@@ -117,18 +96,35 @@ const Insureds = () => {
             handleSetNewInsured={handleSetNewInsured}
           />
         ) : (
-          <>
-            <InsuredsList deleteInsured={deleteInsured} />
-            <p onClick={handleSetNewInsured}>Quiero asegurar a alguien más </p>
-            <Link to='/step-3'>
-              <button
-                onClick={() => {}}
-                className='primary-button margin-left-16'
-              >
-                Continuar >
-              </button>
-            </Link>
-          </>
+          <DataConsumer>
+            {value => (
+              <>
+                <InsuredsList deleteInsured={deleteInsured} />
+                <div
+                  onClick={handleSetNewInsured}
+                  className='margin-top-32 pointer'
+                >
+                  <img src={add} alt='agregar' className='margin-right-16' />
+                  <span className='purple-link'>
+                    Quiero asegurar a alguien más
+                  </span>
+                </div>
+
+                <Link to='/step-3' className='button-right'>
+                  <button
+                    className={
+                      value.data.length !== 0
+                        ? 'primary-button'
+                        : 'disabled-button'
+                    }
+                    disabled={value.data.length !== 0 ? false : true}
+                  >
+                    Continuar >
+                  </button>
+                </Link>
+              </>
+            )}
+          </DataConsumer>
         )}
       </div>
     </div>

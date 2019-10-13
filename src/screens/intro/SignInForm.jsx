@@ -77,7 +77,7 @@ const SignInForm = ({
             />
           </div>
           <Input
-            className='input'
+            className='input-large'
             type='text'
             placeholder='Nombre'
             value={userName}

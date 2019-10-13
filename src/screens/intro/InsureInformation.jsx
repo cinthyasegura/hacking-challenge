@@ -1,29 +1,9 @@
 import React, { Component } from 'react';
 import './InsureInformation.scss';
 import SignInForm from './SignInForm';
-import { validation } from '../../utils/validation';
+import { validation } from '../../utils/validation/validation';
 import { DataContext } from '../../context/Context';
-
-const constraints = {
-  dniNumber: {
-    presence: true,
-    format: {
-      pattern: '[0-9]+',
-      message: '^Solo se permite números.'
-    },
-    length: {
-      is: 8,
-      message: '^Nro de DNI debe tener 8 digitos'
-    }
-  },
-  userName: {
-    presence: true,
-    format: {
-      pattern: '[a-zA-Z ]+',
-      message: '^Solo se permite letras.'
-    }
-  }
-};
+import { constraints } from '../../utils/validation/constraints';
 
 class InsureInformation extends Component {
   constructor(props) {
@@ -54,7 +34,11 @@ class InsureInformation extends Component {
   goToSteps = () => {
     const { dniNumber, userName, formErrors } = this.state;
 
-    const errors = validation({ dniNumber, userName }, constraints, formErrors);
+    const errors = validation(
+      { dniNumber, userName },
+      { dniNumber: constraints.dniNumber, userName: constraints.userName },
+      formErrors
+    );
 
     if (errors !== undefined) {
       this.setState({ formErrors: errors });

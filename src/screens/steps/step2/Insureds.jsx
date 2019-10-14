@@ -123,12 +123,10 @@ const Insureds = props => {
                 </div>
 
                 <Link
-                  to={{
-                    pathname: 'step-3',
-                    state: {
-                      email
-                    }
-                  }}
+                  to={
+                   '/step-3'
+                
+                  }
                   className='button-right'
                 >
                   <button

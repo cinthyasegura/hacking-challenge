@@ -5,7 +5,6 @@ import Input from '../../../../shared/ui/Input';
 import ok from '../../../../assets/ok.svg';
 
 const PaymentDetail = ({
-  selectedItem,
   setShowDetails,
   isDetailSelected,
   price,
@@ -49,14 +48,7 @@ const PaymentDetail = ({
                 value={values.discCountCode}
                 onChange={handleChange}
               />
-              <button
-                className='apply-btn'
-                // onClick={() => {
-                //   handleCouponDiscount();
-                // }}
-              >
-                APLICAR
-              </button>
+              <button className='apply-btn'>APLICAR</button>
             </div>
           )}
         </>

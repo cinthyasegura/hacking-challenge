@@ -11,7 +11,6 @@ const HolderInformation = props => {
   const [isChecked, setIsChecked] = useState(false);
   const [isDisabled, setIsDisabled] = useState(true);
   const [formErrors, setFormErrors] = useState({ email: '' });
-  const [route, setRoute] = useState('/information');
 
   const { values, handleChange, handleSubmit } = useSubmitFormInput(
     handleOnClick
@@ -26,8 +25,6 @@ const HolderInformation = props => {
     );
     if (errors !== undefined) {
       setFormErrors(errors);
-    } else {
-      setRoute('/step-2');
     }
   }
 

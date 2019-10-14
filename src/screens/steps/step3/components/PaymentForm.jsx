@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Input from '../../../../shared/ui/Input';
 import { DataConsumer } from '../../../../context/Context';
 import visa from '../../../../assets/visa.svg';
@@ -7,6 +8,15 @@ import questionMark from '../../../../assets/questionMark.svg';
 import CheckBox from '../../../../shared/ui/CheckBox';
 
 const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
+  const onFocus = e => {
+    e.currentTarget.type = 'date';
+  };
+
+  const onBlur = e => {
+    e.currentTarget.type = 'text';
+    e.currentTarget.placeholder = 'Fecha de nacimiento';
+  };
+
   return (
     <DataConsumer>
       {value => (
@@ -31,7 +41,7 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
             <div className='grid-input-spacer grid-card-row grid-start-column'></div>
             <div className='grid-card-row grid-center-column'>
               <Input
-                type='text'
+                type='number'
                 placeholder='Número de tarjeta'
                 name='creditCard'
                 className='no-border grid-input-large'
@@ -49,24 +59,30 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
                 <Input
                   type='text'
                   placeholder='Fecha de nacimiento'
-                  name='creditCard'
+                  name='birthdate'
                   className='no-border grid-input-medium'
-                  value={values.creditCard}
+                  value={values.birthdate}
                   onChange={handleChange}
+                  onFocus={e => onFocus(e)}
+                  onBlur={e => onBlur(e)}
                 />
                 <div className='grid-input-spacer'></div>
                 <Input
-                  type='text'
+                  type='number'
                   placeholder='CVV'
-                  name='creditCard'
+                  name='cvv'
                   className='no-border grid-input-small'
-                  value={values.creditCard}
+                  value={values.cvv}
                   onChange={handleChange}
                 />
               </div>
             </div>
             <div className='grid-icon grid-dateCvv-row grid-end-column'>
-              <img src={questionMark} alt='questionMark' />
+              <img
+                src={questionMark}
+                alt='questionMark'
+                className='margin-left-10'
+              />
             </div>
 
             <div className='grid-input-spacer grid-email-row grid-start-column'></div>
@@ -74,26 +90,36 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
               <Input
                 type='text'
                 placeholder='Correo electrónico'
-                name='creditCard'
+                name='email'
                 className='no-border grid-input-large'
-                value={values.creditCard}
+                value={values.email}
                 onChange={handleChange}
               />
             </div>
           </div>
 
-          <CheckBox
-            value='Autorizo el cargo de mi cuota a la tarjeta registrada como cargo recurrente.'
-            className='margin-top-24'
-          />
-          <CheckBox
-            value='Acepto las políticas de envío de la póliza electrónica.'
-            className='margin-top-24'
-          />
-
-          <button onClick={setPayCardType}>
-            {`Pagar S/ ${price(value.data)}`}
-          </button>
+          <div className='margin-top-checkbox'>
+            <CheckBox
+              value='Autorizo el cargo de mi cuota a la tarjeta registrada como cargo recurrente.'
+              className='margin-top-24 ft-12'
+            />
+            <CheckBox
+              value='Acepto las políticas de envío de la póliza electrónica.'
+              className='margin-top-24 ft-12'
+            />
+          </div>
+          <div className='button-right'>
+            <Link
+              to={{
+                pathname: 'congratulations',
+                state: { email: values.email }
+              }}
+            >
+              <button className='primary-button'>
+                {`Pagar S/ ${price(value.data)}`}
+              </button>
+            </Link>
+          </div>
         </>
       )}
     </DataConsumer>

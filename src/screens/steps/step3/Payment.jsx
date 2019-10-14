@@ -17,7 +17,6 @@ const Payment = props => {
   const [cardType, setCardType] = useState('');
 
   const { values, handleChange } = useTargetValueFormInput();
-  const { email } = props.location.state;
 
   useEffect(() => {
     async function setPaymentData() {
@@ -34,18 +33,23 @@ const Payment = props => {
   }, [values]);
 
   const setPayCardType = () => {
-    if (values && values.creditCard) {
-      return regexMap.map((regexs, i, regexMap) => {
+    if (values) {
+      for (let i = 0; i < regexMap.length; i++) {
         if (values.creditCard.match(regexMap[i].regEx)) {
-          console.log(values.creditCard);
-          console.log(regexMap[i].regEx);
-
-          return setCardType(regexMap[i].cardType);
+          setCardType(regexMap[i].cardType);
+          return;
         }
-      });
+      }
+
+      //  regexMap.map((regexs, i, regexMap) => {
+      //     if (values.creditCard.match(regexMap[i].regEx)) {
+      //       console.log(values.creditCard);
+      //       console.log(regexMap[i].regEx);
+
+      //       return setCardType(regexMap[i].cardType);
+      //     }
+      //   });
     }
-    console.log('here');
-    console.log(cardType, 'cardtype');
   };
 
   const setShowDetails = () => setIsDetailSelected(!isDetailSelected);
@@ -65,19 +69,6 @@ const Payment = props => {
       : promCodesData !== undefined
       ? `${data.length * selectedItem.price * (1 - promCodesData.valor / 100)} `
       : `${data.length * selectedItem.price}`;
-
-  // const handleCouponDiscount = () => {
-  //   if (values.discountCode && promCodesData) {
-  //     return `Genial tienes ${promCodesData.valor}% dscto extra.`;
-  //   }
-  // };
-
-  // console.log(handleCouponDiscount());
-  // const value = {};
-
-  // const handleSUbmit = () => {
-  //   setPayCardType()
-  // }
 
   return (
     <div className='wrapper'>
@@ -113,7 +104,6 @@ const Payment = props => {
           price={price}
           values={values}
           setPayCardType={setPayCardType}
-          email={email}
         />
       </div>
     </div>

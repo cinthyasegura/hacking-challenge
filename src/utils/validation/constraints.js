@@ -18,16 +18,16 @@ export const constraints = {
     }
   },
   fullName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
+    presence: { allowEmpty: false, message: '^Completar campo.' }
   },
   mothersLastName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
+    presence: { allowEmpty: false, message: '^Completar campo.' }
   },
   fathersLastName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
+    presence: { allowEmpty: false, message: '^Completar campo.' }
   },
   birthDate: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' }
+    presence: { allowEmpty: false, message: '^Completar campo.' }
   },
   userName: {
     presence: { allowEmpty: false, message: '^Campo vacio.' },

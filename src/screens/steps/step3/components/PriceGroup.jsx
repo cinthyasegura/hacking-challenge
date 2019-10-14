@@ -1,12 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import PriceBox from './PriceBox';
-import DataContext, { DataConsumer } from '../../../../context/Context';
+import { DataConsumer } from '../../../../context/Context';
 import '../Payment.scss';
 
 const PriceGroup = ({ paymentMethodsData, selectedItem, setSelectedItem }) => {
   return (
-    // <p>no data</p>
-
     <DataConsumer>
       {value => (
         <div className='price-group-container margin-top-4'>

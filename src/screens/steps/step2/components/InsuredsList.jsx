@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { DataContext } from '../../../../context/Context';
 import '../Insureds.scss';
 
-const InsuredsList = ({ deleteInsured }) => {
+const InsuredsList = ({ deleteInsured, editInsured }) => {
   const { data } = useContext(DataContext);
   return (
     <>
@@ -18,7 +18,7 @@ const InsuredsList = ({ deleteInsured }) => {
             </div>
             <p
               className='edit-delete margin-top-32 pointer'
-              onClick={() => deleteInsured(request.numDocumento)}
+              onClick={() => editInsured(request.numDocumento)}
             >
               EDITAR
             </p>

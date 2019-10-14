@@ -5,7 +5,6 @@ import Steps from '../../../shared/components/Steps';
 import { getPaymentMethod, getPromCodes } from '../../../api/reads';
 import './Payment.scss';
 import { useTargetValueFormInput } from '../../../utils/customHooks/customHooks';
-import { regexMap } from '../../../utils/validation/regex';
 import PaymentForm from './components/PaymentForm';
 import PaymentDetail from './components/PaymentDetail';
 
@@ -14,7 +13,6 @@ const Payment = props => {
   const [selectedItem, setSelectedItem] = useState({});
   const [isDetailSelected, setIsDetailSelected] = useState(false);
   const [promCodesData, setPromCodesData] = useState([]);
-  const [cardType, setCardType] = useState('');
 
   const { values, handleChange } = useTargetValueFormInput();
 
@@ -31,26 +29,6 @@ const Payment = props => {
 
     setPaymentData();
   }, [values]);
-
-  const setPayCardType = () => {
-    if (values) {
-      for (let i = 0; i < regexMap.length; i++) {
-        if (values.creditCard.match(regexMap[i].regEx)) {
-          setCardType(regexMap[i].cardType);
-          return;
-        }
-      }
-
-      //  regexMap.map((regexs, i, regexMap) => {
-      //     if (values.creditCard.match(regexMap[i].regEx)) {
-      //       console.log(values.creditCard);
-      //       console.log(regexMap[i].regEx);
-
-      //       return setCardType(regexMap[i].cardType);
-      //     }
-      //   });
-    }
-  };
 
   const setShowDetails = () => setIsDetailSelected(!isDetailSelected);
 
@@ -103,7 +81,6 @@ const Payment = props => {
           handleChange={handleChange}
           price={price}
           values={values}
-          setPayCardType={setPayCardType}
         />
       </div>
     </div>

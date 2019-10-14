@@ -1,12 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const RadioButton = props => {
-  // const [checked, setChecked] = useState(propChecked);
-
-  // const handleRadioButtonChange = () => {
-  //   setChecked(!checked);
-  // };
-
   return (
     <div className={props.className}>
       <label>

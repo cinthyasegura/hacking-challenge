@@ -11,11 +11,13 @@ import Steps from '../../../shared/components/Steps';
 import add from '../../../assets/add.svg';
 import { constraints } from '../../../utils/validation/constraints';
 import './Insureds.scss';
-import { getUsers } from '../../../api/reads';
+import { getUsers, getUserData } from '../../../api/reads';
 
 const Insureds = props => {
   const [newInsured, setNewInsured] = useState(false);
   const [radioValue, setRadioValue] = useState('');
+  const [userData, setUserData] = useState({});
+  const [edit, setEdit] = useState(false);
   const [formErrors, setFormErrors] = useState({
     dniNumber: '',
     fullName: '',
@@ -50,6 +52,14 @@ const Insureds = props => {
     await deleteUSer(docId);
     const dataResponse = await getUsers();
     setData(dataResponse);
+  };
+
+  const editInsured = async docId => {
+    setEdit(true);
+    const userInformation = await getUserData(docId);
+    const userDataSaved = userInformation.data;
+    setUserData(userDataSaved);
+    handleSetNewInsured();
   };
 
   const updateRadioButton = e => {
@@ -105,13 +115,17 @@ const Insureds = props => {
             formErrors={formErrors}
             handleSetNewInsured={handleSetNewInsured}
             updateRadioButton={updateRadioButton}
+            userData={userData}
+            edit={edit}
           />
         ) : (
-          // <p>no data</p>
           <DataConsumer>
             {value => (
               <>
-                <InsuredsList deleteInsured={deleteInsured} />
+                <InsuredsList
+                  deleteInsured={deleteInsured}
+                  editInsured={editInsured}
+                />
                 <div
                   onClick={handleSetNewInsured}
                   className='add-insureds margin-top-32 pointer'
@@ -122,13 +136,7 @@ const Insureds = props => {
                   </span>
                 </div>
 
-                <Link
-                  to={
-                   '/step-3'
-                
-                  }
-                  className='button-right'
-                >
+                <Link to={'/step-3'} className='button-right'>
                   <button
                     className={
                       value.data.length !== 0

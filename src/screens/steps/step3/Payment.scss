@@ -107,6 +107,12 @@
   height: 16px;
 }
 
+.ft-20 {
+  @include fontLatoNormal();
+  font-weight: 300;
+  font-size: 18px;
+}
+
 .badge {
   @include fontLatoNormal();
   font-size: 14px;

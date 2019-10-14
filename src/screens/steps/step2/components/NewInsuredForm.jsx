@@ -26,7 +26,15 @@ class NewInsuredForm extends Component {
       handleSubmit,
       handleSetNewInsured,
       formErrors,
-      updateRadioButton
+      updateRadioButton,
+      userData: {
+        apellidoPaterno,
+        nombres,
+        apellidoMaterno,
+        numDocumento,
+        fecNacimiento
+      },
+      edit
     } = this.props;
     return (
       <div className='insured-data-container'>
@@ -56,7 +64,7 @@ class NewInsuredForm extends Component {
               placeholder='Nro. de Documento'
               className='input-select-large'
               name='dniNumber'
-              value={dniNumber}
+              value={edit ? numDocumento : dniNumber}
               onChange={handleChange}
               errors={formErrors.dniNumber && formErrors.dniNumber[0]}
             />
@@ -67,7 +75,7 @@ class NewInsuredForm extends Component {
             placeholder='Nombres'
             className='input-large'
             name='fullName'
-            value={fullName}
+            value={edit ? nombres : fullName}
             onChange={handleChange}
             errors={formErrors.fullName && formErrors.fullName[0]}
           />
@@ -76,7 +84,7 @@ class NewInsuredForm extends Component {
             placeholder='Apellidos Paternos'
             className='input-large'
             name='mothersLastName'
-            value={mothersLastName}
+            value={edit ? apellidoMaterno : mothersLastName}
             onChange={handleChange}
             errors={formErrors.mothersLastName && formErrors.mothersLastName[0]}
           />
@@ -85,7 +93,7 @@ class NewInsuredForm extends Component {
             placeholder='Apellidos Maternos'
             className='input-large'
             name='fathersLastName'
-            value={fathersLastName}
+            value={edit ? apellidoPaterno : fathersLastName}
             onChange={handleChange}
             errors={formErrors.fathersLastName && formErrors.fathersLastName[0]}
           />
@@ -96,7 +104,7 @@ class NewInsuredForm extends Component {
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             name='birthDate'
-            value={birthDate}
+            value={edit ? fecNacimiento : birthDate}
             onChange={handleChange}
           />
           <p className='subtitle-form-h6 margin-top-24 margin-bottom-0'>

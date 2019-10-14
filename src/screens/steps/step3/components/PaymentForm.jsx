@@ -7,7 +7,7 @@ import visaBlue from '../../../../assets/visa-blue.svg';
 import questionMark from '../../../../assets/questionMark.svg';
 import CheckBox from '../../../../shared/ui/CheckBox';
 
-const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
+const PaymentForm = ({ handleChange, price, values }) => {
   const onFocus = e => {
     e.currentTarget.type = 'date';
   };
@@ -21,7 +21,9 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
     <DataConsumer>
       {value => (
         <>
-          <p>Ahora ingresa los datos de tu tarjeta.</p>
+          <p className='margin-top-32 ft-20 margin-bottom-0 '>
+            Ahora ingresa los datos de tu tarjeta.
+          </p>
           <div className='grid-payment-form margin-top-24'>
             <div className='grid-input-spacer grid-title-row grid-start-column'></div>
             <div className='grid-title-row grid-center-column'>
@@ -101,7 +103,7 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
           <div className='margin-top-checkbox'>
             <CheckBox
               value='Autorizo el cargo de mi cuota a la tarjeta registrada como cargo recurrente.'
-              className='margin-top-24 ft-12'
+              className='margin-top-12 ft-12'
             />
             <CheckBox
               value='Acepto las políticas de envío de la póliza electrónica.'

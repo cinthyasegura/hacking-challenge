@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './Intro.scss';
 import HolderForm from './components/HolderForm';
 import { validation } from '../../utils/validation/validation';
@@ -44,17 +45,12 @@ class Intro extends Component {
     if (errors !== undefined) {
       this.setState({ formErrors: errors });
     } else {
-      this.setState({ route: '/step-1' });
+      // this.props.history.push('/step-1');
+      this.setState({ route: 'step-1' });
     }
   };
 
   render() {
-    // const { data, setData } = this.context;
-
-    // if (data !== undefined) {
-    //   console.log(data.tercero.numDocumento);
-    // }
-
     const {
       requestPermisions,
       dniNumber,
@@ -84,3 +80,20 @@ class Intro extends Component {
 Intro.contextType = DataContext;
 
 export default Intro;
+// export default withRouter(Intro);
+
+// const AuthPage = ({ formErrors }) => {
+//   if (forErrors !== undefined) {
+//     return <Redirect to="/dashboard" />;
+//   } else {
+//     return <h3>User not loggedin</h3>;
+//   }
+// };
+
+{
+  /* <Route exact path="/auth-not-loggedin" render={(props) => <AuthPage {...props} isLoggedIn={false} />} /> */
+}
+
+{
+  /* <Link to="/auth-loggedin">User Loggedin</Link> */
+}

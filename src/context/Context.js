@@ -19,8 +19,6 @@ const DataProvider = props => {
     getData();
   }, []);
 
-  console.log(data, 'data');
-
   return (
     <DataContext.Provider value={{ data, setData }}>
       {props.children}

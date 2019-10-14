@@ -62,6 +62,7 @@ const HolderForm = ({
         <Link
           to={{
             pathname: route,
+            // pathname: 'step-1',
             state: {
               dniNumber,
               userName

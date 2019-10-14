@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import LeftSide from '../../../shared/components/LeftSide';
 import PriceGroup from './components/PriceGroup';
 import Steps from '../../../shared/components/Steps';
 import { getPaymentMethod, getPromCodes } from '../../../api/reads';
 import './Payment.scss';
-import { DataConsumer, DataContext } from '../../../context/Context';
 import { useTargetValueFormInput } from '../../../utils/customHooks/customHooks';
-
-import CheckBox from '../../../shared/ui/CheckBox';
 import { regexMap } from '../../../utils/validation/regex';
 import PaymentForm from './components/PaymentForm';
 import PaymentDetail from './components/PaymentDetail';
-const Payment = () => {
+
+const Payment = props => {
   const [paymentMethodsData, setPaymentMethodData] = useState([]);
   const [selectedItem, setSelectedItem] = useState({});
   const [isDetailSelected, setIsDetailSelected] = useState(false);
@@ -21,8 +19,7 @@ const Payment = () => {
   // getSelectedData({selectedItem})
 
   const { values, handleChange } = useTargetValueFormInput();
-
-  const { value } = useContext(DataContext);
+  const { email } = props.location.state;
 
   useEffect(() => {
     async function setPaymentData() {
@@ -86,46 +83,47 @@ const Payment = () => {
 
   return (
     <>
-      <DataConsumer>
-        {value => (
-          <div className='wrapper'>
-            <LeftSide />
-            <div className='form-align-left'>
-              <Steps actualStep={3} />
-              <p className='title-form margin-top-64 margin-bottom-0'>
-                Elige el <span className='primary-color'>pago ideal</span>
-              </p>
-              <p className='subtitle-form-text margin-top-16 margin-bottom-0'>
-                Decide entre 12 pagos mensuales o sólo una cuota al año.
-              </p>
-              <hr className='divider margin-top-32 margin-bottom-0' />
-              <div className='margin-top-24 margin-bottom-0'>
-                <PriceGroup
-                  paymentMethodsData={paymentMethodsData}
-                  selectedItem={selectedItem}
-                  setSelectedItem={setSelectedItem}
-                />
-              </div>
-              <PaymentDetail
-                selectedItem={selectedItem}
-                setShowDetails={setShowDetails}
-                isDetailSelected={isDetailSelected}
-                price={price}
-                promCodesData={promCodesData}
-                values={values}
-                handleChange={handleChange}
-              />
-
-              <PaymentForm
-                handleChange={handleChange}
-                price={price}
-                values={values}
-                setPayCardType={setPayCardType}
-              />
-            </div>
+      {/* <DataConsumer>
+        {value => ( */}
+      <div className='wrapper'>
+        <LeftSide />
+        <div className='form-align-left'>
+          <Steps actualStep={3} />
+          <p className='title-form margin-top-64 margin-bottom-0'>
+            Elige el <span className='primary-color'>pago ideal</span>
+          </p>
+          <p className='subtitle-form-text margin-top-16 margin-bottom-0'>
+            Decide entre 12 pagos mensuales o sólo una cuota al año.
+          </p>
+          <hr className='divider margin-top-32 margin-bottom-0' />
+          <div className='margin-top-24 margin-bottom-0'>
+            <PriceGroup
+              paymentMethodsData={paymentMethodsData}
+              selectedItem={selectedItem}
+              setSelectedItem={setSelectedItem}
+            />
           </div>
-        )}
-      </DataConsumer>
+          <PaymentDetail
+            selectedItem={selectedItem}
+            setShowDetails={setShowDetails}
+            isDetailSelected={isDetailSelected}
+            price={price}
+            promCodesData={promCodesData}
+            values={values}
+            handleChange={handleChange}
+          />
+
+          <PaymentForm
+            handleChange={handleChange}
+            price={price}
+            values={values}
+            setPayCardType={setPayCardType}
+            email={email}
+          />
+        </div>
+      </div>
+      {/* )}
+      </DataConsumer> */}
     </>
   );
 };

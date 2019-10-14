@@ -4,6 +4,7 @@ import Intro from '../screens/intro/Intro';
 import HolderInformation from '../screens/steps/step1/HolderInformation';
 import Insureds from '../screens/steps/step2/Insureds';
 import Payment from '../screens/steps/step3/Payment';
+import Congratulations from '../screens/congratulations/Congratulations';
 
 const Navigation = () => (
   <>
@@ -11,6 +12,7 @@ const Navigation = () => (
     <Route path='/step-1' component={HolderInformation} />
     <Route path='/step-2' component={Insureds} />
     <Route path='/step-3' component={Payment} />
+    <Route path='/congratulations' component={Congratulations} />
   </>
 );
 

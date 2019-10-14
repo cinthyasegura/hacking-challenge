@@ -3,10 +3,8 @@ import { DataContext } from '../../../../context/Context';
 import '../Insureds.scss';
 
 const InsuredsList = ({ deleteInsured }) => {
-  const { data, setData } = useContext(DataContext);
+  const { data } = useContext(DataContext);
   return (
-    // <DataConsumer>
-    //   {value => {
     <>
       {data.map(request => (
         <>
@@ -35,8 +33,6 @@ const InsuredsList = ({ deleteInsured }) => {
       ))}
       <hr className='divider margin-top-16 margin-bottom-0' />
     </>
-    //   }}
-    // </DataConsumer>
   );
 };
 export default InsuredsList;

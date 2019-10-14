@@ -20,12 +20,6 @@
   width: 474px;
 }
 
-.purple-link {
-  @include fontLatoNormal;
-  font-style: Regular;
-  color: $purple;
-  font-size: 14px;
-}
 .insureds-container-grid {
   display: grid;
   grid-template-columns: 278px 98px 98px;

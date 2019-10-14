@@ -1,11 +1,5 @@
 @import '../../../App';
 
-.wrapper {
-  @include gridContainer();
-  grid-template-columns: 0.5fr 1fr;
-  height: 100vh;
-  width: auto;
-}
 .aside {
   @include leftSide();
 }
@@ -14,10 +8,6 @@
   position: absolute;
   margin-left: 60%;
   margin-top: 25%;
-}
-
-.primary-button {
-  @include primary-button();
 }
 
 .disabled-button {

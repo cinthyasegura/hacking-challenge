@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../Payment.scss';
 import checkIcon from '../../../../assets/check.svg';
 import unCheckIcon from '../../../../assets/circle.svg';

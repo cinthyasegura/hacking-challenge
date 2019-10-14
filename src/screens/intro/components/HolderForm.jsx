@@ -15,7 +15,7 @@ const HolderForm = ({
 }) => {
   return (
     <div className='form'>
-      <main className='form-inputs'>
+      <main className='form-inputs margin-left-0'>
         <p className='title-form'>
           Protégelos <span className='primary-color'>ahora</span>
         </p>
@@ -27,7 +27,7 @@ const HolderForm = ({
           <Input
             type='number'
             placeholder='Nro. de Documento'
-            className='input-select'
+            className='input-select-intro'
             name='dniNumber'
             value={dniNumber}
             onChange={onChange}
@@ -35,7 +35,7 @@ const HolderForm = ({
           />
         </div>
         <Input
-          className='input-large'
+          className='input-large-intro'
           type='text'
           placeholder='Nombre'
           value={userName}

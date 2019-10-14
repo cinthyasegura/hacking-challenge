@@ -139,6 +139,9 @@ body {
   margin-bottom: 0;
 }
 
+.margin-left-0 {
+  margin-left: 0;
+}
 .margin-left-16 {
   margin-left: $text;
 }
@@ -353,4 +356,22 @@ select {
   align-items: center;
   justify-content: space-between;
   margin-left: -40px;
+}
+
+.wrapper {
+  @include gridContainer();
+  grid-template-columns: 0.5fr 1fr;
+  height: 100vh;
+  width: auto;
+}
+
+.purple-link {
+  @include fontLatoNormal;
+  font-style: Regular;
+  color: $purple;
+  font-size: 14px;
+}
+
+.primary-button {
+  @include primary-button();
 }

@@ -88,10 +88,34 @@
   // line-height: 0;
 }
 .icon {
-  background-color: $title-color;
+  padding-right: 15px;
 }
 
 .footer {
   margin-top: 15%;
   font-size: $h6;
+}
+
+.lato-light {
+  @include fontLatoNormal();
+  font-style: 300;
+}
+
+.input-select-intro {
+  @include fontLatoNormal();
+  width: 250px;
+  height: 56px;
+  background: $title-color;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
+  text-align: center;
+  font-size: $text;
+  line-height: 19px;
+}
+
+.input-large-intro {
+  @include input();
+  margin-top: 16px;
+  width: 340px;
 }

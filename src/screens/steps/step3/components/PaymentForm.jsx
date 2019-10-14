@@ -1,8 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Input from '../../../../shared/ui/Input';
 import { DataConsumer } from '../../../../context/Context';
 
-const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
+const PaymentForm = ({
+  handleChange,
+  price,
+  values,
+  setPayCardType,
+  email
+}) => {
   return (
     <DataConsumer>
       {value => (
@@ -19,13 +26,18 @@ const PaymentForm = ({ handleChange, price, values, setPayCardType }) => {
               value={values.creditCard}
               onChange={handleChange}
             />
-            {/* </div> */}
-            {/* <div className=' expire'></div>
-          <div className=' cvv'></div>
-          <div className=' email'></div> */}
-            <button onClick={setPayCardType}>
-              {`Pagar S/ ${price(value.data)}`}
-            </button>
+            <Link
+              to={{
+                pathname: 'congratulations',
+                state: {
+                  email
+                }
+              }}
+            >
+              <button onClick={setPayCardType}>
+                {`Pagar S/ ${price(value.data)}`}
+              </button>
+            </Link>
           </div>
 
           {/* <CheckBox />

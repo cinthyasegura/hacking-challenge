@@ -1,0 +1,53 @@
+@import '../../App.scss';
+
+.final-title {
+  @include fontLatoNormal();
+  font-weight: 300;
+  font-size: $h2;
+  line-height: 42px;
+  letter-spacing: -0.2px;
+  color: $gray;
+  width: 474px;
+}
+
+.texto {
+  @include fontLatoNormal();
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 32px;
+  color: $text-color;
+}
+
+.border-outline {
+  border: 3px solid #f7f7fa;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: $border-radius;
+  width: 474px;
+  height: 136px;
+  box-sizing: border-box;
+}
+
+.final-title-red {
+  @include fontLatoNormal();
+  font-weight: 500;
+  font-size: $h2;
+  line-height: 42px;
+  letter-spacing: -0.2px;
+  color: $primary-color;
+  width: 474px;
+}
+
+.padding-center {
+  @include fontLatoNormal();
+  font-weight: 300;
+  padding: 0px 30px;
+  line-height: 24px;
+}
+
+.lato-style {
+  @include fontLatoNormal();
+  font-weight: 300;
+  color: '#494F66';
+}

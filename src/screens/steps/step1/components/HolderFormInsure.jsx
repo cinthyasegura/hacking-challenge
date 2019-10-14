@@ -60,14 +60,12 @@ const HolderFormInsure = ({
           Modificar DNI
         </span>
         <Link
-          to='step-2'
-          // to={{
-          //   pathname: route,
-          //   state: {
-          //     dniNumber,
-          //     userName
-          //   }
-          // }}
+          to={{
+            pathname: 'step-2',
+            state: {
+              email: values.email
+            }
+          }}
         >
           <button
             type='submit'

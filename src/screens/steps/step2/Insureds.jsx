@@ -13,7 +13,7 @@ import { constraints } from '../../../utils/validation/constraints';
 import './Insureds.scss';
 import { getUsers } from '../../../api/reads';
 
-const Insureds = () => {
+const Insureds = props => {
   const [newInsured, setNewInsured] = useState(false);
   const [formErrors, setFormErrors] = useState({
     dniNumber: '',
@@ -24,8 +24,8 @@ const Insureds = () => {
   });
 
   const { values, handleChange, handleSubmit } = useSubmitFormInput(Submit);
-
-  const { data, setData } = useContext(DataContext);
+  const { setData } = useContext(DataContext);
+  const { email } = props.location.state;
 
   const inputValues = {
     dniNumber: values.dniNumber,
@@ -59,14 +59,14 @@ const Insureds = () => {
     } else {
       const inputValuesOnSave = {
         nomCompleto: `${values.fullName} ${values.mothersLastName} ${values.fathersLastName} `,
-        apellidoPaterno: `${values.fathersLastName}`,
+        apellidoPaterno: values.fathersLastName,
         sexo: 'M',
-        nombres: `${values.fullName}`,
+        nombres: values.fullName,
         tipoDocumento: '01',
-        apellidoMaterno: `${values.mothersLastName}`,
-        numDocumento: `${values.dniNumber}`,
-        fecNacimiento: `${values.birthDate}`,
-        correo: 'cinthyaless@gmail.com'
+        apellidoMaterno: values.mothersLastName,
+        numDocumento: values.dniNumber,
+        fecNacimiento: values.birthDate,
+        correo: email
       };
 
       await createNewUser(inputValuesOnSave);
@@ -116,7 +116,15 @@ const Insureds = () => {
                   </span>
                 </div>
 
-                <Link to='/step-3' className='button-right'>
+                <Link
+                  to={{
+                    pathname: 'step-3',
+                    state: {
+                      email
+                    }
+                  }}
+                  className='button-right'
+                >
                   <button
                     className={
                       value.data.length !== 0

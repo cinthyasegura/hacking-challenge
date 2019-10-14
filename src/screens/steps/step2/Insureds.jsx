@@ -15,6 +15,7 @@ import { getUsers } from '../../../api/reads';
 
 const Insureds = props => {
   const [newInsured, setNewInsured] = useState(false);
+  const [radioValue, setRadioValue] = useState('');
   const [formErrors, setFormErrors] = useState({
     dniNumber: '',
     fullName: '',
@@ -51,6 +52,10 @@ const Insureds = props => {
     setData(dataResponse);
   };
 
+  const updateRadioButton = e => {
+    setRadioValue(e.target.value);
+  };
+
   async function Submit() {
     const errors = validation(inputValues, constraintsValidations, formErrors);
 
@@ -60,7 +65,7 @@ const Insureds = props => {
       const inputValuesOnSave = {
         nomCompleto: `${values.fullName} ${values.mothersLastName} ${values.fathersLastName} `,
         apellidoPaterno: values.fathersLastName,
-        sexo: 'M',
+        sexo: radioValue,
         nombres: values.fullName,
         tipoDocumento: '01',
         apellidoMaterno: values.mothersLastName,
@@ -99,6 +104,7 @@ const Insureds = props => {
             handleSubmit={handleSubmit}
             formErrors={formErrors}
             handleSetNewInsured={handleSetNewInsured}
+            updateRadioButton={updateRadioButton}
           />
         ) : (
           // <p>no data</p>
@@ -146,15 +152,3 @@ const Insureds = props => {
 };
 
 export default Insureds;
-
-{
-  /* </ScrollView>
-        <Button onPress={this.createPost} title="Create Post" />
-      </View>
-    )
-  }
-
-  createPost = () => {
-    this.props.router.push('/create')
-  } */
-}

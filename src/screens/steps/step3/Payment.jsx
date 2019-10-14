@@ -15,8 +15,6 @@ const Payment = props => {
   const [isDetailSelected, setIsDetailSelected] = useState(false);
   const [promCodesData, setPromCodesData] = useState([]);
   const [cardType, setCardType] = useState('');
-  // const [selectedCode, setSelectedCode] = useState({});
-  // getSelectedData({selectedItem})
 
   const { values, handleChange } = useTargetValueFormInput();
   const { email } = props.location.state;
@@ -82,49 +80,43 @@ const Payment = props => {
   // }
 
   return (
-    <>
-      {/* <DataConsumer>
-        {value => ( */}
-      <div className='wrapper'>
-        <LeftSide />
-        <div className='form-align-left'>
-          <Steps actualStep={3} />
-          <p className='title-form margin-top-64 margin-bottom-0'>
-            Elige el <span className='primary-color'>pago ideal</span>
-          </p>
-          <p className='subtitle-form-text margin-top-16 margin-bottom-0'>
-            Decide entre 12 pagos mensuales o sólo una cuota al año.
-          </p>
-          <hr className='divider margin-top-32 margin-bottom-0' />
-          <div className='margin-top-24 margin-bottom-0'>
-            <PriceGroup
-              paymentMethodsData={paymentMethodsData}
-              selectedItem={selectedItem}
-              setSelectedItem={setSelectedItem}
-            />
-          </div>
-          <PaymentDetail
+    <div className='wrapper'>
+      <LeftSide />
+      <div className='form-align-left'>
+        <Steps actualStep={3} />
+        <p className='title-form margin-top-64 margin-bottom-0'>
+          Elige el <span className='primary-color'>pago ideal</span>
+        </p>
+        <p className='subtitle-form-text margin-top-16 margin-bottom-0'>
+          Decide entre 12 pagos mensuales o sólo una cuota al año.
+        </p>
+        <hr className='divider margin-top-32 margin-bottom-0' />
+        <div className='margin-top-24 margin-bottom-0'>
+          <PriceGroup
+            paymentMethodsData={paymentMethodsData}
             selectedItem={selectedItem}
-            setShowDetails={setShowDetails}
-            isDetailSelected={isDetailSelected}
-            price={price}
-            promCodesData={promCodesData}
-            values={values}
-            handleChange={handleChange}
-          />
-
-          <PaymentForm
-            handleChange={handleChange}
-            price={price}
-            values={values}
-            setPayCardType={setPayCardType}
-            email={email}
+            setSelectedItem={setSelectedItem}
           />
         </div>
+        <PaymentDetail
+          selectedItem={selectedItem}
+          setShowDetails={setShowDetails}
+          isDetailSelected={isDetailSelected}
+          price={price}
+          promCodesData={promCodesData}
+          values={values}
+          handleChange={handleChange}
+        />
+
+        <PaymentForm
+          handleChange={handleChange}
+          price={price}
+          values={values}
+          setPayCardType={setPayCardType}
+          email={email}
+        />
       </div>
-      {/* )}
-      </DataConsumer> */}
-    </>
+    </div>
   );
 };
 

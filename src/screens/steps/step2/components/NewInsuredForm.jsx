@@ -25,7 +25,8 @@ class NewInsuredForm extends Component {
       handleChange,
       handleSubmit,
       handleSetNewInsured,
-      formErrors
+      formErrors,
+      updateRadioButton
     } = this.props;
     return (
       <div className='insured-data-container'>
@@ -42,11 +43,11 @@ class NewInsuredForm extends Component {
           </p>
         </div>
         <hr className='divider margin-top-24 margin-bottom-0' />
-        <p className='subtitle-form-h3 margin-top-32 margin-bottom-0'>
+        <p className='subtitle-form-h3 margin-top-24 margin-bottom-0'>
           {`Datos del asegurado Nº${data.length + 1}`}
         </p>
         <form onSubmit={handleSubmit} className='align-left-flex'>
-          <div className='input-select-section margin-top-24'>
+          <div className='input-select-section margin-top-16'>
             <select className='select'>
               <option>DNI</option>
             </select>
@@ -98,14 +99,19 @@ class NewInsuredForm extends Component {
             value={birthDate}
             onChange={handleChange}
           />
-          <p className='subtitle-form-h6 margin-top-32 margin-bottom-0'>
+          <p className='subtitle-form-h6 margin-top-24 margin-bottom-0'>
             GÉNERO
           </p>
           <RadioButton
             value='Masculino'
-            className='radiobutton margin-top-16'
+            className='radiobutton margin-top-12'
+            onChange={updateRadioButton}
           />
-          <RadioButton value='Femenino' className='radiobutton margin-top-12' />
+          <RadioButton
+            value='Femenino'
+            className='radiobutton margin-top-12'
+            onChange={updateRadioButton}
+          />
           <div className='button-right'>
             <span
               className='link pointer margin-right-32'

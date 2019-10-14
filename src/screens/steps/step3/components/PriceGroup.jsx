@@ -16,7 +16,7 @@ const PriceGroup = ({ paymentMethodsData, selectedItem, setSelectedItem }) => {
               index={i}
               isCheck={i === selectedItem.index}
               title={paymentMethod.tipo}
-              price={paymentMethod.costo * value.data.length}
+              price={paymentMethod.costo}
               setSelectedItem={setSelectedItem}
             />
           ))}

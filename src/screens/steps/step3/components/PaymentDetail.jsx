@@ -20,7 +20,7 @@ const PaymentDetail = ({
           <p className='subtitle-form-h6 margin-top-48'>pago total</p>
           <div className='insurends-form-container-grid'>
             <p className='subtitle-form-text-grid'>
-              {Object.keys(selectedItem).length <= 1
+              {value.data.length <= 1
                 ? `Por ${value.data.length} asegurado`
                 : `Por ${value.data.length} asegurados`}
             </p>
@@ -44,7 +44,7 @@ const PaymentDetail = ({
               <Input
                 type='text'
                 placeholder='Ingresa código de dscto.'
-                className=' no-border'
+                className=' dscto'
                 name='discountCode'
                 value={values.discCountCode}
                 onChange={handleChange}

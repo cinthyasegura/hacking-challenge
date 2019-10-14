@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LeftSide from '../../shared/components/LeftSide';
+import LeftSideHappyGirl from '../../shared/components/LeftSideHappyGirl';
 import RimacAppInfo from './component/RimacAppInfo';
 import './Congratulations.scss';
 
@@ -9,12 +9,12 @@ const Congratulations = props => {
 
   return (
     <div className='wrapper'>
-      <LeftSide />
+      <LeftSideHappyGirl />
       <div className='form-align-left'>
         <p className='final-title-red margin-top-64 margin-bottom-0'>
           ¡Felicidades!
         </p>
-        <p className='final-title'>
+        <p className='final-title margin-top-8 margin-bottom-0'>
           Tus seres queridos ahora se encuentran protegidos
         </p>
         <p className='texto'>

@@ -7,7 +7,7 @@ export const constraints = {
     }
   },
   dniNumber: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' },
+    presence: { allowEmpty: false, message: '^Campo vacio.' },
     format: {
       pattern: '[0-9]+',
       message: '^Solo se permite números.'
@@ -30,7 +30,7 @@ export const constraints = {
     presence: { allowEmpty: false, message: '^Completar el campo.' }
   },
   userName: {
-    presence: { allowEmpty: false, message: '^Completar el campo.' },
+    presence: { allowEmpty: false, message: '^Campo vacio.' },
     format: {
       pattern: '[a-zA-Z ]+',
       message: '^Solo se permite letras.'

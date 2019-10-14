@@ -120,10 +120,17 @@
 }
 
 .no-border {
+  border: none;
+}
+
+.dscto {
   @include input();
   border: none;
 }
 
+.dscto:focus {
+  outline: none;
+}
 .no-border:focus {
   outline: none;
 }
@@ -165,32 +172,96 @@
 
 .grid-payment-form {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-template-areas:
-    'titular-name titular-name titular-name'
-    'cc cc cc'
-    'expire expire cvv'
-    'email email email ';
+  grid-template-columns: 16px 369px 1fr;
+  grid-template-rows: repeat(4, 56px);
   width: 434px;
+  border: 1px solid #d4d5e8;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
-.titular-name {
-  grid-area: titular-name;
+.grid-input-large {
+  width: 369px;
+  height: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d4d5e8;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a9b1d1;
 }
 
-.cc {
-  grid-area: cc;
+.grid-input-medium {
+  width: 221px;
+  height: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d4d5e8;
+  border-right: 1px solid #d4d5e8;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a9b1d1;
 }
 
-.expire {
-  grid-area: expire;
+.grid-input-small {
+  width: 133px;
+  height: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d4d5e8;
+
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #a9b1d1;
 }
 
-.cvv {
-  grid-area: cvv;
+.grid-icon {
+  height: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d4d5e8;
+  display: flex;
+  align-items: center;
 }
 
-.email {
-  grid-area: email;
+.grid-input-spacer {
+  width: 16px;
+  height: 56px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #d4d5e8;
+}
+
+.grid-start-column {
+  grid-column: 1;
+}
+
+.grid-center-column {
+  grid-column: 2;
+}
+
+.grid-end-column {
+  grid-column: 3;
+}
+
+.grid-title-row {
+  grid-row: 1;
+}
+
+.grid-card-row {
+  grid-row: 2;
+}
+
+.grid-dateCvv-row {
+  grid-row: 3;
+}
+
+.grid-email-row {
+  grid-row: 4;
 }
